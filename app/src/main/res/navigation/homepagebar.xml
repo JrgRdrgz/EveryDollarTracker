@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/homepagebar"
+    app:startDestination="@id/graphs">
+
+    <fragment
+        android:id="@+id/graphs"
+        android:name="com.example.everydollartracker.Graphs"
+        android:label="fragment_graphs"
+        tools:layout="@layout/fragment_graphs" />
+    <fragment
+        android:id="@+id/statistics"
+        android:name="com.example.everydollartracker.Statistics"
+        android:label="fragment_statistics"
+        tools:layout="@layout/fragment_statistics" />
+    <fragment
+        android:id="@+id/settings"
+        android:name="com.example.everydollartracker.Settings"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/dashboard"
+        android:name="com.example.everydollartracker.Dashboard"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+</navigation>
