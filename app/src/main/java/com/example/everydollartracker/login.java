@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import org.jetbrains.annotations.NotNull;
 import org.w3c.dom.Text;
 
-public class login extends AppCompatActivity {
+public class login extends AppCompatActivity implements View.OnClickListener {
 
     TextView register;
     private EditText editTextemail, editTextpassword;
@@ -31,33 +31,35 @@ public class login extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
+
         register = (TextView) findViewById(R.id.register);
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.register:
-                        Intent intent = new Intent(login.this, register.class);
-                        startActivity(intent);
-                        break;
-
-                    case R.id.loginbutton:
-                        loginuser();
-                        break;
-                }
-
-            }
-        });
+        register.setOnClickListener(this);
 
         loginbutton = (Button) findViewById(R.id.loginbutton);
-        loginbutton.setOnClickListener((View.OnClickListener) this);
+        loginbutton.setOnClickListener(this);
 
         editTextemail = (EditText) findViewById(R.id.email);
         editTextpassword = (EditText) findViewById(R.id.password);
+
+        mAuth=FirebaseAuth.getInstance();
+    }
+
+    @Override
+    public void onClick(View v){
+        switch (v.getId()) {
+            case R.id.register:
+                Intent intent = new Intent(login.this, register.class);
+                startActivity(intent);
+                break;
+
+            case R.id.loginbutton:
+                loginuser();
+                break;
+        }
+
     }
 
     private void loginuser() {
@@ -93,6 +95,4 @@ public class login extends AppCompatActivity {
             }
         });
     }
-
-
 }
