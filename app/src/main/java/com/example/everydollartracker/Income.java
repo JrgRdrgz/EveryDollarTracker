@@ -1,8 +1,8 @@
 package com.example.everydollartracker;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Income extends AppCompatActivity {
 
