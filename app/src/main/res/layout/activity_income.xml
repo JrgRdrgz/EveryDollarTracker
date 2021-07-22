@@ -6,6 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".Expenses">
 
+    <Button
+        android:id="@+id/buttonBonusIn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bonus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.445"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.487" />
+
+    <Button
+        android:id="@+id/buttonSalaryIn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.487" />
+
+    <Button
+        android:id="@+id/buttonAllowanceIn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Allowance"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.912"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.487" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -110,42 +146,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.62" />
-
-    <Button
-        android:id="@+id/buttonNeedsEx"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Needs"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.487" />
-
-    <Button
-        android:id="@+id/buttonSavingsEx"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Savings"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.066"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.487" />
-
-    <Button
-        android:id="@+id/buttonWantsEx"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Wants"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.876"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.487" />
 
     <Button
         android:id="@+id/buttonCancelIn"
