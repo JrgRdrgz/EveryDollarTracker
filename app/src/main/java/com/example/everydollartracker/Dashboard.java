@@ -16,8 +16,6 @@ import android.widget.Button;
  * create an instance of this fragment.
  */
 public class Dashboard extends Fragment {
-    private Button addexpense;
-    private Button addincome;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -63,23 +61,19 @@ public class Dashboard extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        addexpense=view.findViewById(R.id.addexpense);
+        Button addexpense=(Button) view.findViewById(R.id.addexpense);
         addexpense.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch(v.getId()){
-                    case R.id.addexpense:
-                        Intent intent = new Intent(getActivity(), Expense.class);
-                        startActivity(intent);
-                        break;
-                }
+                Intent intent = new Intent(getActivity(), Expense.class);
+                startActivity(intent);
             }
         });
-        addincome=view.findViewById(R.id.addincome);
+        Button addincome=(Button) view.findViewById(R.id.addincome);
         addincome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Expense.class);
+                Intent intent = new Intent(getActivity(), Income.class);
                 startActivity(intent);
             }
         });
