@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EveryDollarTracker">
+        <activity android:name=".Expense"></activity>
         <activity android:name=".homepage" />
         <activity android:name=".register" />
         <activity android:name=".login" />

@@ -1,5 +1,6 @@
 package com.example.everydollartracker;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,7 +16,8 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class Dashboard extends Fragment {
-
+    private Button addexpense;
+    private Button addincome;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -59,6 +62,28 @@ public class Dashboard extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dashboard, container, false);
+        View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        addexpense=view.findViewById(R.id.addexpense);
+        addexpense.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch(v.getId()){
+                    case R.id.addexpense:
+                        Intent intent = new Intent(getActivity(), Expense.class);
+                        startActivity(intent);
+                        break;
+                }
+            }
+        });
+        addincome=view.findViewById(R.id.addincome);
+        addincome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Expense.class);
+                startActivity(intent);
+            }
+        });
+        return view;
+
     }
 }
