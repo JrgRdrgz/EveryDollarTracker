@@ -10,6 +10,7 @@
         android:id="@+id/buttonBonusIn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="se2In"
         android:text="Bonus"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,6 +23,7 @@
         android:id="@+id/buttonSalaryIn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="se1In"
         android:text="Salary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,6 +36,7 @@
         android:id="@+id/buttonAllowanceIn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="se3In"
         android:text="Allowance"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,6 +97,18 @@
         app:layout_constraintVertical_bias="0.382" />
 
     <TextView
+        android:id="@+id/selectIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.689"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.381" />
+
+    <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -152,6 +167,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#F10A0A"
+        android:onClick="goToHome"
         android:text="Cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -165,12 +181,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#12E627"
+        android:onClick="addNewIncome"
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.761"
+        app:layout_constraintHorizontal_bias="0.764"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.754" />
+        app:layout_constraintVertical_bias="0.752" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

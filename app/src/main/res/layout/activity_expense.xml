@@ -7,6 +7,18 @@
     tools:context=".Expenses">
 
     <TextView
+        android:id="@+id/selectEx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.689"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.381" />
+
+    <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -115,6 +127,7 @@
         android:id="@+id/buttonNeedsEx"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="se2Ex"
         android:text="Needs"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -127,6 +140,7 @@
         android:id="@+id/buttonSavingsEx"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="se1Ex"
         android:text="Savings"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -139,6 +153,7 @@
         android:id="@+id/buttonWantsEx"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="se3Ex"
         android:text="Wants"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -152,6 +167,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#F10A0A"
+        android:onClick="goToHomeE"
         android:text="Cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -165,6 +181,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#12E627"
+        android:onClick="addNewExpenses"
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
