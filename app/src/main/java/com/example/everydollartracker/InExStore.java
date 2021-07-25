@@ -19,10 +19,10 @@ public class InExStore {
     public String getType() {
         return type;
     }
-    public String getTate() {
+    public String getDate() {
         return date;
     }
-    public String getTource() {
+    public String getSource() {
         return source;
     }
     public String getTote() {
