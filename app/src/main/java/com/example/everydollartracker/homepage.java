@@ -9,8 +9,10 @@ import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class homepage extends AppCompatActivity {
+import java.util.ArrayList;
 
+public class homepage extends AppCompatActivity {
+    static ArrayList<InExStore> inExArray = new ArrayList<InExStore>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,5 +21,9 @@ public class homepage extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         NavController navController = Navigation.findNavController(this,  R.id.fragment);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
+    }
+    public static void addInOrEx(double amount,String type, String date,String source, String note) {
+        InExStore newInEx = new InExStore(amount, type, date, source, note);
+        inExArray.add(newInEx);
     }
 }
