@@ -5,43 +5,22 @@ import java.util.ArrayList;
 public class User {
     public String name, email;
 
-    public static class Income {
-        String dateIn, noteIn, sourceIn;
-        double amountIn;
-        public Income(double amount, String date,String source, String note){
-            this.dateIn = date;
-            this.noteIn = note;
-            this.amountIn = amount;
-            this.sourceIn = source;
-
+    public static class InEx {
+        String date, note, source, type;
+        double amount;
+        public InEx(double amount,String type, String date,String source, String note){
+            this.amount = amount;
+            this.type = type;
+            this.date = date;
+            this.source = source;
+            this.note = note;
         }
     }
-    static ArrayList<Income> incomes = new ArrayList<Income>();
-
-    public static void addExpenses(double amount, String date,String source, String note) {
-        Income newIn= new Income(amount,date,source,note);
-        incomes.add(newIn);
+    static ArrayList<InEx> inex = new ArrayList<InEx>();
+    public static void addInEx(double amount,String type, String date,String source, String note) {
+        InEx newInEx= new InEx(amount,type,date,source,note);
+        inex.add(newInEx);
     }
-
-
-    public static class Expenses {
-        String dateEx, noteEx, sourceEx;
-        double amountEx;
-        public Expenses(double amount, String date,String source, String note){
-            this.dateEx = date;
-            this.noteEx = note;
-            this.amountEx = amount;
-            this.sourceEx = source;
-
-        }
-    }
-    static ArrayList<Expenses> Expensess = new ArrayList<Expenses>();
-
-    public static void addIncome(double amount, String date,String source, String note) {
-        Expenses newEx= new Expenses(amount,date,source,note);
-        Expensess.add(newEx);
-    }
-
     public User(){
 
     }

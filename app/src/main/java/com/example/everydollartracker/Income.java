@@ -58,6 +58,7 @@ public class Income extends AppCompatActivity {
         String date = editTextDateIn.getText().toString().trim();
         String note = editTextNoteIn.getText().toString().trim();
         String source = selectIn.getText().toString().trim();
+        String type="INCOME";
 
 
         if (amountSt.isEmpty()) {
@@ -79,7 +80,7 @@ public class Income extends AppCompatActivity {
             Toast.makeText(this, "set note to 'NONE'", Toast.LENGTH_SHORT).show();
         }
 
-        User.addIncome(amount,date,source, note);
+        User.addInEx(amount,type,date,source, note);
         Toast.makeText(Income.this, "Added new income", Toast.LENGTH_LONG).show();
         startActivity(new Intent(getApplicationContext(), homepage.class ));// back to home after done
     }
