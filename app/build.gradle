@@ -15,7 +15,7 @@ android {
         versionName "1.0"
         // Milad
         multiDexEnabled true  //ADD THIS LINE
-
+        //
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
