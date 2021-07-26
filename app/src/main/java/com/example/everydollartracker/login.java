@@ -19,7 +19,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import org.jetbrains.annotations.NotNull;
-import org.w3c.dom.Text;
 
 public class login extends AppCompatActivity implements View.OnClickListener {
 
@@ -88,7 +87,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
             @Override
             public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    startActivity(new Intent(login.this, homepage.class));
+                    startActivity(new Intent(login.this, App_Page.class));
                 }else{
                     Toast.makeText(login.this, "Unable to Login", Toast.LENGTH_LONG).show();
                 }

@@ -41,7 +41,7 @@ public class Expense extends AppCompatActivity {
 
 
     public void goToHomeE (View view) {
-        startActivity(new Intent(getApplicationContext(), homepage.class ));
+        startActivity(new Intent(getApplicationContext(), Dashboard.class ));
         Toast.makeText(this, "Go To Homepage", Toast.LENGTH_SHORT).show();
     }
 
@@ -78,8 +78,8 @@ public class Expense extends AppCompatActivity {
             Toast.makeText(this, "set note to 'NONE'", Toast.LENGTH_SHORT).show();
         }
 
-        homepage.addInOrEx(amount,type,date,source, note);
+        /*Dashboard.addInOrEx(amount,type,date,source, note);
         Toast.makeText(this, "Added new Expenses", Toast.LENGTH_LONG).show();
-        startActivity(new Intent(getApplicationContext(), homepage.class ));// back to home after done
+        startActivity(new Intent(getApplicationContext(), Dashboard.class ));// back to home after done*/
     }
 }
