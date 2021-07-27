@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.everydollartracker"
-    android:name=".MyApplication">
+    android:name=".EveryDollarTracker">
 
     <application
         android:allowBackup="true"
