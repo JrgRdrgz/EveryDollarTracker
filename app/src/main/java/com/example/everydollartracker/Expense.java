@@ -69,7 +69,7 @@ public class Expense extends AppCompatActivity {
             return;
         }
         if (source.isEmpty()) {
-            Toast.makeText(this, "Select an Excome source", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Select an Expense source", Toast.LENGTH_LONG).show();
             return;
         }
 
