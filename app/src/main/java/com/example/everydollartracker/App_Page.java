@@ -12,6 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 
 public class App_Page extends AppCompatActivity {
+    public static   User thisUser;
     static ArrayList<InExStore> inExArray = new ArrayList<InExStore>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {

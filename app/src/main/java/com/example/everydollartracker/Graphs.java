@@ -25,7 +25,9 @@ public class Graphs extends Fragment {
     static double  pN=50, pW=30, pS=20, d=45,e=45,f=10;
     /////////graph var////////////
     TextView tvR, tvPython, tvCPP, tvJava;
-    PieChart pieChart;
+    EditText etN,etW,etS;
+    PieChart pieChartPlanned;
+    PieChart pieChartActual;
 
 
 
@@ -75,11 +77,11 @@ public class Graphs extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_graphs, container, false);
-        EditText etN=(EditText) view.findViewById(R.id.etN);
-        EditText etW=(EditText) view.findViewById(R.id.etW);
-        EditText etS=(EditText) view.findViewById(R.id.etS);
-        PieChart pieChartPlanned = (PieChart)  view.findViewById(R.id.piechartPlanned);
-        PieChart pieChartActual = (PieChart)  view.findViewById(R.id.piechartActual);
+        etN=(EditText) view.findViewById(R.id.etN);
+        etW=(EditText) view.findViewById(R.id.etW);
+        etS=(EditText) view.findViewById(R.id.etS);
+        pieChartPlanned = (PieChart)  view.findViewById(R.id.piechartPlanned);
+        pieChartActual = (PieChart)  view.findViewById(R.id.piechartActual);
 
         String etNtoS = etN.getText().toString().trim();
         String etWtoS = etW.getText().toString().trim();
@@ -114,6 +116,20 @@ public class Graphs extends Fragment {
         // To animate the pie chart
         pieChart.startAnimation();
     }
+    void updateG(View view){
+        pieChartPlanned = (PieChart)  view.findViewById(R.id.piechartPlanned);
+        etN=(EditText) view.findViewById(R.id.etN);
+        etW=(EditText) view.findViewById(R.id.etW);
+        etS=(EditText) view.findViewById(R.id.etS);
+        pieChartPlanned = (PieChart)  view.findViewById(R.id.piechartPlanned);
 
+        String etNtoS = etN.getText().toString().trim();
+        String etWtoS = etW.getText().toString().trim();
+        String etStoS = etS.getText().toString().trim();
+        pN=Double.parseDouble(etNtoS);
+        pW=Double.parseDouble(etWtoS);
+        pS=Double.parseDouble(etStoS);
+        setData(pieChartPlanned,pN,pW,pS);
+    }
 
 }

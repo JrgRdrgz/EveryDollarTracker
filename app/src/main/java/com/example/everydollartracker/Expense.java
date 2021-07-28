@@ -78,7 +78,7 @@ public class Expense extends AppCompatActivity {
             Toast.makeText(this, "set note to 'NONE'", Toast.LENGTH_SHORT).show();
         }
 
-        Dashboard.thisUser.addInOrEx(amount,type,date,source, note);
+        App_Page.addInOrEx(amount,type,date,source, note);
         Toast.makeText(this, "Added new Expenses", Toast.LENGTH_LONG).show();
         startActivity(new Intent(getApplicationContext(), Dashboard.class ));// back to home after done*/
     }
