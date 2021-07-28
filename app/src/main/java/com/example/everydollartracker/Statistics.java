@@ -7,6 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import org.eazegraph.lib.charts.PieChart;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +18,7 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class Statistics extends Fragment {
+    TextView textViewOI,textViewOE,textViewDA,textViewMA,textViewDE,textViewME;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +64,43 @@ public class Statistics extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_statistics, container, false);
+        View view = inflater.inflate(R.layout.fragment_statistics, container, false);
+        textViewOI= (TextView) view.findViewById(R.id.textViewOI);
+        textViewOE= (TextView) view.findViewById(R.id.textViewOE);
+        textViewDA= (TextView) view.findViewById(R.id.textViewDA);
+        textViewMA= (TextView) view.findViewById(R.id.textViewMA);
+        textViewDE= (TextView) view.findViewById(R.id.textViewDE);
+        textViewME= (TextView) view.findViewById(R.id.textViewME);
+        textViewOI.setText(funOI());
+        textViewOE.setText(funOE());
+
+        return view;
+    }
+    String funOI(){
+        String textA="";
+        double xa=0.0;
+        //for (int i = 0; i < App_Page.inExArray.size(); i++)
+        for (InExStore i : App_Page.inExArray){
+            if(i.getType().equals("INCOME")){
+                xa=xa+ i.getAmount();
+            }
+        }
+        textA=Double.toString(xa);
+
+        return textA;
+    }
+    String funOE(){
+        String textB="";
+        double xb=0.0;
+        //for (int i = 0; i < App_Page.inExArray.size(); i++)
+        for (InExStore i : App_Page.inExArray){
+            if(i.getType().equals("EXPENSES")){
+                xb=xb+i.getAmount();
+            }
+        }
+        textB=Double.toString(xb);
+
+        return textB;
     }
 }
+
