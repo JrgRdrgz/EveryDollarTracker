@@ -18,7 +18,7 @@ import org.eazegraph.lib.charts.PieChart;
  * create an instance of this fragment.
  */
 public class Statistics extends Fragment {
-    TextView textViewOI,textViewOE,textViewDA,textViewMA,textViewDE,textViewME;
+    TextView textViewOI,textViewOE,textViewOS,textViewOA,textViewDA,textViewMA,textViewDE,textViewME;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -67,12 +67,17 @@ public class Statistics extends Fragment {
         View view = inflater.inflate(R.layout.fragment_statistics, container, false);
         textViewOI= (TextView) view.findViewById(R.id.textViewOI);
         textViewOE= (TextView) view.findViewById(R.id.textViewOE);
+        textViewOS= (TextView) view.findViewById(R.id.textViewOS);
+        textViewOA= (TextView) view.findViewById(R.id.textViewOA);
         textViewDA= (TextView) view.findViewById(R.id.textViewDA);
         textViewMA= (TextView) view.findViewById(R.id.textViewMA);
         textViewDE= (TextView) view.findViewById(R.id.textViewDE);
         textViewME= (TextView) view.findViewById(R.id.textViewME);
+
         textViewOI.setText(funOI());
         textViewOE.setText(funOE());
+        textViewOS.setText(funOS());
+        textViewOA.setText(funOA());
 
         return view;
     }
@@ -95,6 +100,33 @@ public class Statistics extends Fragment {
         //for (int i = 0; i < App_Page.inExArray.size(); i++)
         for (InExStore i : App_Page.inExArray){
             if(i.getType().equals("EXPENSES")){
+                xb=xb+i.getAmount();
+            }
+        }
+        textB=Double.toString(xb);
+
+        return textB;
+    }
+
+    String funOS(){
+        String textB="";
+        double xb=0.0;
+        //for (int i = 0; i < App_Page.inExArray.size(); i++)
+        for (InExStore i : App_Page.inExArray){
+            if(i.getSource().equals("SAVINGS")){
+                xb=xb+i.getAmount();
+            }
+        }
+        textB=Double.toString(xb);
+
+        return textB;
+    }
+    String funOA(){
+        String textB="";
+        double xb=0.0;
+        //for (int i = 0; i < App_Page.inExArray.size(); i++)
+        for (InExStore i : App_Page.inExArray){
+            if(i.getSource().equals("ALLOWANCE")){
                 xb=xb+i.getAmount();
             }
         }
