@@ -22,7 +22,7 @@ import org.eazegraph.lib.models.PieModel;
  * create an instance of this fragment.
  */
 public class Graphs extends Fragment {
-    static double  pN=50, pW=30, pS=20, d=50,e=30,f=20;
+    static double  pN=50, pW=30, pS=20, d=45,e=45,f=10;
     /////////graph var////////////
     TextView tvR, tvPython, tvCPP, tvJava;
     PieChart pieChart;
