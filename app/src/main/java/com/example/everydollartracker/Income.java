@@ -82,7 +82,7 @@ public class Income extends AppCompatActivity {
 
         App_Page.addInOrEx(amount,type,date,source, note);
         Toast.makeText(Income.this, "Added new income", Toast.LENGTH_LONG).show();
-        startActivity(new Intent(getApplicationContext(), Dashboard.class ));// back to home after done
+        startActivity(new Intent(getApplicationContext(), App_Page.class ));// back to home after done
     }
 
 

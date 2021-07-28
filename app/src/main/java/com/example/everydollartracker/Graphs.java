@@ -74,6 +74,7 @@ public class Graphs extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_graphs, container, false);
+        super.onCreate(savedInstanceState);
         etN=(EditText) view.findViewById(R.id.etN);
         etW=(EditText) view.findViewById(R.id.etW);
         etS=(EditText) view.findViewById(R.id.etS);
