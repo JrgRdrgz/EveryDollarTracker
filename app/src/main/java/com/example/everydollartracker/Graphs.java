@@ -110,6 +110,9 @@ public class Graphs extends Fragment {
                 new PieModel(
                         "SAVINGS",
                         (float) dw,
+
+
+
                         Color.parseColor("#EF5350")));
 
 
