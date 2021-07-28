@@ -26,7 +26,7 @@
             app:layout_constraintVertical_bias="0.119"
             app:srcCompat="@drawable/blank_profile" />
 
-        <TextView
+        <EditText
             android:id="@+id/Fullname"
             android:layout_width="161dp"
             android:layout_height="46dp"
@@ -38,7 +38,7 @@
             android:includeFontPadding="false"
             android:layout_marginLeft="10dp"/>
 
-        <TextView
+        <EditText
             android:id="@+id/Username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
                     android:text="$"
                     android:textSize="20sp" />
 
-                <TextView
+                <EditText
                     android:id="@+id/Income_M"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -148,7 +148,7 @@
                     android:text="$"
                     android:textSize="20sp" />
 
-                <TextView
+                <EditText
                     android:id="@+id/Expense_M"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -189,11 +189,12 @@
             android:hint="Email">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_baseline_account_circle_24"
                 android:drawablePadding="10dp"
-                android:text="test@test.com"/>
+                android:text="test@test.com" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -204,11 +205,12 @@
             android:hint="Password">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_baseline_account_circle_24"
                 android:drawablePadding="5dp"
-                android:text="*****"/>
+                android:text="*****" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -219,22 +221,20 @@
             android:hint="Date of Birth">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/dateofbirth_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_baseline_account_circle_24"
                 android:drawablePadding="1dp"
-                android:text="00/00/0000"/>
+                android:text="00/00/0000" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-
-
         <Button
+            android:id="@+id/upp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Update"
-            android:fontFamily="@font/amiko"
-            android:background="#fece2f"/>
+            android:text="Update" />
 
 
     </LinearLayout>
