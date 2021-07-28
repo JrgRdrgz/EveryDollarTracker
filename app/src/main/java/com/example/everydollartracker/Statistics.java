@@ -108,7 +108,7 @@ public class Statistics extends Fragment {
         return textB;
     }
 
-    String funOS(){
+    public static String funOS(){
         String textB="";
         double xb=0.0;
         //for (int i = 0; i < App_Page.inExArray.size(); i++)
@@ -117,12 +117,12 @@ public class Statistics extends Fragment {
                 xb=xb+i.getAmount();
             }
         }
-        oW=xb;
+        oS=xb;
         textB=Double.toString(xb);
 
         return textB;
     }
-    String funOW(){
+    static String funOW(){
         String textB="";
         double xb=0.0;
         //for (int i = 0; i < App_Page.inExArray.size(); i++)
@@ -136,7 +136,7 @@ public class Statistics extends Fragment {
 
         return textB;
     }
-    String funON(){
+    static String funON(){
         String textB="";
         double xb=0.0;
         //for (int i = 0; i < App_Page.inExArray.size(); i++)

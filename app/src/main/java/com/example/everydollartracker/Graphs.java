@@ -20,6 +20,9 @@ import org.eazegraph.lib.models.PieModel;
  */
 public class Graphs extends Fragment {
     static double  pN=50, pW=30, pS=20, d=45,e=45,f=10;
+    String aS= Statistics.funOS();
+    String aW= Statistics.funOW();
+    String aN= Statistics.funON();
     /////////graph var////////////
     TextView tvR, tvPython, tvCPP, tvJava;
     EditText etN,etW,etS;
