@@ -1,5 +1,6 @@
 package com.example.everydollartracker;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.graphics.Color;
+import android.widget.Toast;
+
+import org.eazegraph.lib.charts.PieChart;
+import org.eazegraph.lib.models.PieModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +22,12 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class Graphs extends Fragment {
+    static double  pN=50, pW=30, pS=20, d=50,e=30,f=20;
+    /////////graph var////////////
+    TextView tvR, tvPython, tvCPP, tvJava;
+    PieChart pieChart;
+
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -53,12 +67,53 @@ public class Graphs extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_graphs, container, false);
+        View view = inflater.inflate(R.layout.fragment_graphs, container, false);
+        EditText etN=(EditText) view.findViewById(R.id.etN);
+        EditText etW=(EditText) view.findViewById(R.id.etW);
+        EditText etS=(EditText) view.findViewById(R.id.etS);
+        PieChart pieChartPlanned = (PieChart)  view.findViewById(R.id.piechartPlanned);
+        PieChart pieChartActual = (PieChart)  view.findViewById(R.id.piechartActual);
+
+        String etNtoS = etN.getText().toString().trim();
+        String etWtoS = etW.getText().toString().trim();
+        String etStoS = etS.getText().toString().trim();
+        pN=Double.parseDouble(etNtoS);
+        pW=Double.parseDouble(etWtoS);
+        pS=Double.parseDouble(etStoS);
+        setData(pieChartPlanned,pN,pW,pS);
+        setData(pieChartActual,d,e,f);
+        return view;
     }
+    void setData(PieChart pieChart, double ds, double dw, double dn)
+    {
+        // Set the data and color to the pie chart
+        pieChart.addPieSlice(
+                new PieModel(
+                        "NEEDS", (float) ds
+                        ,
+                        Color.parseColor("#FFA726")));
+        pieChart.addPieSlice(
+                new PieModel(
+                        "WANTS",
+                        (float) dn,
+                        Color.parseColor("#66BB6A")));
+        pieChart.addPieSlice(
+                new PieModel(
+                        "SAVINGS",
+                        (float) dw,
+                        Color.parseColor("#EF5350")));
+
+
+        // To animate the pie chart
+        pieChart.startAnimation();
+    }
+
+
 }
