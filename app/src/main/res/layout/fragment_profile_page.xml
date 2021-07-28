@@ -91,6 +91,17 @@
                     android:textSize="20sp" />
 
                 <TextView
+                    android:id="@+id/Income_M"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_above="@+id/Income_label"
+                    android:fontFamily="@font/amiko"
+                    android:includeFontPadding="false"
+                    android:text="123"
+                    android:textSize="20sp" />
+
+                <TextView
                     android:id="@+id/Income_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -135,6 +146,17 @@
                     android:fontFamily="@font/amiko"
                     android:includeFontPadding="false"
                     android:text="$"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/Expense_M"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_above="@+id/Expense_label"
+                    android:fontFamily="@font/amiko"
+                    android:includeFontPadding="false"
+                    android:text="123"
                     android:textSize="20sp" />
 
                 <TextView

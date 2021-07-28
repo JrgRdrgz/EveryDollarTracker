@@ -14,6 +14,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -37,6 +38,8 @@ public class Profile_Page extends AppCompatActivity
     private Uri imageUri;
     private FirebaseStorage storage;
     private StorageReference storageReference;
+
+    EditText Email, Password, DOF, FullName, UserName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -80,7 +83,7 @@ public class Profile_Page extends AppCompatActivity
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent,1);
+        //startActivityForResult(intent,1);
 
     }
 
