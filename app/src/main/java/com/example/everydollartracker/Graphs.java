@@ -120,7 +120,7 @@ public class Graphs extends Fragment {
         // To animate the pie chart
         pieChart.startAnimation();
     }
-    void updateG(View view){
+    /*void updateG(View view){
         /*pieChartPlanned = (PieChart)  view.findViewById(R.id.piechartPlanned);
         etN=(EditText) view.findViewById(R.id.etN);
         etW=(EditText) view.findViewById(R.id.etW);
@@ -133,7 +133,7 @@ public class Graphs extends Fragment {
         pN=Double.parseDouble(etNtoS);
         pW=Double.parseDouble(etWtoS);
         pS=Double.parseDouble(etStoS);
-        setData(pieChartPlanned,pN,pW,pS);*/
-    }
+        setData(pieChartPlanned,pN,pW,pS);
+    } */
 
 }
