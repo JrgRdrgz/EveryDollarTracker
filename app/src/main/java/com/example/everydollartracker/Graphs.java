@@ -88,26 +88,26 @@ public class Graphs extends Fragment {
         pW=Double.parseDouble(etWtoS);
         pS=Double.parseDouble(etStoS);
         setData(pieChartPlanned,pN,pW,pS);
-        setData(pieChartActual,d,e,f);
+        setData(pieChartActual,Statistics.oN,Statistics.oW,Statistics.oS);
         return view;
     }
-    void setData(PieChart pieChart, double ds, double dw, double dn)
+    void setData(PieChart pieChart, double dn, double dw, double ds)
     {
         // Set the data and color to the pie chart
         pieChart.addPieSlice(
                 new PieModel(
-                        "NEEDS", (float) ds
+                        "NEEDS", (float) dn
                         ,
                         Color.parseColor("#FFA726")));
         pieChart.addPieSlice(
                 new PieModel(
                         "WANTS",
-                        (float) dn,
+                        (float) dw,
                         Color.parseColor("#66BB6A")));
         pieChart.addPieSlice(
                 new PieModel(
                         "SAVINGS",
-                        (float) dw,
+                        (float) ds,
 
 
 
@@ -118,7 +118,7 @@ public class Graphs extends Fragment {
         pieChart.startAnimation();
     }
     void updateG(View view){
-        pieChartPlanned = (PieChart)  view.findViewById(R.id.piechartPlanned);
+        /*pieChartPlanned = (PieChart)  view.findViewById(R.id.piechartPlanned);
         etN=(EditText) view.findViewById(R.id.etN);
         etW=(EditText) view.findViewById(R.id.etW);
         etS=(EditText) view.findViewById(R.id.etS);
@@ -130,7 +130,7 @@ public class Graphs extends Fragment {
         pN=Double.parseDouble(etNtoS);
         pW=Double.parseDouble(etWtoS);
         pS=Double.parseDouble(etStoS);
-        setData(pieChartPlanned,pN,pW,pS);
+        setData(pieChartPlanned,pN,pW,pS);*/
     }
 
 }

@@ -33,6 +33,8 @@ public class App_Page extends AppCompatActivity {
         addInOrEx((double)79,"EXPENSES", "07/25/2021","NEEDS", "PART time");
         addInOrEx((double)32,"INCOME", "07/28/2021","ALLOWANCE", "full time");
         addInOrEx((double)59,"EXPENSES", "07/25/2021","SAVINGS", "PART time");
+        addInOrEx((double)50,"EXPENSES", "07/25/2021","NEEDS", "PART time");
+        addInOrEx((double)100,"EXPENSES", "07/25/2021","WANTS", "PART time");
     }
     public static void addInOrEx(double amount,String type, String date,String source, String note) {
         InExStore newInEx = new InExStore(amount, type, date, source, note);

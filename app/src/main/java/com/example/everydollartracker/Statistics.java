@@ -7,10 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
-
-import org.eazegraph.lib.charts.PieChart;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,7 +15,8 @@ import org.eazegraph.lib.charts.PieChart;
  * create an instance of this fragment.
  */
 public class Statistics extends Fragment {
-    TextView textViewOI,textViewOE,textViewOS,textViewOA,textViewDA,textViewMA,textViewDE,textViewME;
+    TextView textViewOI,textViewOE,textViewOS,textViewOW,textViewON,textViewDA,textViewMA,textViewDE,textViewME;
+    static double oS,oN,oW;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -68,7 +66,8 @@ public class Statistics extends Fragment {
         textViewOI= (TextView) view.findViewById(R.id.textViewOI);
         textViewOE= (TextView) view.findViewById(R.id.textViewOE);
         textViewOS= (TextView) view.findViewById(R.id.textViewOS);
-        textViewOA= (TextView) view.findViewById(R.id.textViewOA);
+        textViewOW= (TextView) view.findViewById(R.id.textViewOW);
+        textViewON= (TextView) view.findViewById(R.id.textViewON);
         textViewDA= (TextView) view.findViewById(R.id.textViewDA);
         textViewMA= (TextView) view.findViewById(R.id.textViewMA);
         textViewDE= (TextView) view.findViewById(R.id.textViewDE);
@@ -77,7 +76,8 @@ public class Statistics extends Fragment {
         textViewOI.setText(funOI());
         textViewOE.setText(funOE());
         textViewOS.setText(funOS());
-        textViewOA.setText(funOA());
+        textViewOW.setText(funOW());
+        textViewON.setText(funON());
 
         return view;
     }
@@ -117,19 +117,35 @@ public class Statistics extends Fragment {
                 xb=xb+i.getAmount();
             }
         }
+        oW=xb;
         textB=Double.toString(xb);
 
         return textB;
     }
-    String funOA(){
+    String funOW(){
         String textB="";
         double xb=0.0;
         //for (int i = 0; i < App_Page.inExArray.size(); i++)
         for (InExStore i : App_Page.inExArray){
-            if(i.getSource().equals("ALLOWANCE")){
+            if(i.getSource().equals("WANTS")){
                 xb=xb+i.getAmount();
             }
         }
+        oW=xb;
+        textB=Double.toString(xb);
+
+        return textB;
+    }
+    String funON(){
+        String textB="";
+        double xb=0.0;
+        //for (int i = 0; i < App_Page.inExArray.size(); i++)
+        for (InExStore i : App_Page.inExArray){
+            if(i.getSource().equals("NEEDS")){
+                xb=xb+i.getAmount();
+            }
+        }
+        oN=xb;
         textB=Double.toString(xb);
 
         return textB;
