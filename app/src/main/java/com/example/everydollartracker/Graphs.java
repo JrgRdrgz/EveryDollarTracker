@@ -1,10 +1,12 @@
 package com.example.everydollartracker;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -19,7 +21,7 @@ import org.eazegraph.lib.models.PieModel;
  * create an instance of this fragment.
  */
 public class Graphs extends Fragment {
-    static double  pN=50, pW=30, pS=20, d=45,e=45,f=10;
+    static double  pN, pW, pS, d=45,e=45,f=10;
     String aS= Statistics.funOS();
     String aW= Statistics.funOW();
     String aN= Statistics.funON();
@@ -28,6 +30,7 @@ public class Graphs extends Fragment {
     EditText etN,etW,etS;
     PieChart pieChartPlanned;
     PieChart pieChartActual;
+    Button updateBt;
 
 
 
@@ -81,6 +84,7 @@ public class Graphs extends Fragment {
         etN=(EditText) view.findViewById(R.id.etN);
         etW=(EditText) view.findViewById(R.id.etW);
         etS=(EditText) view.findViewById(R.id.etS);
+        updateBt=(Button)  view.findViewById(R.id.updateBt);
         pieChartPlanned = (PieChart)  view.findViewById(R.id.piechartPlanned);
         pieChartActual = (PieChart)  view.findViewById(R.id.piechartActual);
 
@@ -92,6 +96,25 @@ public class Graphs extends Fragment {
         pS=Double.parseDouble(etStoS);
         setData(pieChartPlanned,pN,pW,pS);
         setData(pieChartActual,Statistics.oN,Statistics.oW,Statistics.oS);
+        updateBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                etN=(EditText) view.findViewById(R.id.etN);
+                etW=(EditText) view.findViewById(R.id.etW);
+                etS=(EditText) view.findViewById(R.id.etS);
+                pieChartPlanned = (PieChart)  view.findViewById(R.id.piechartPlanned);
+
+                String etNtoS = etN.getText().toString().trim();
+                String etWtoS = etW.getText().toString().trim();
+                String etStoS = etS.getText().toString().trim();
+                pN=Double.parseDouble(etNtoS);
+                pW=Double.parseDouble(etWtoS);
+                pS=Double.parseDouble(etStoS);
+                //pieChartPlanned.startAnimation();
+                pieChartPlanned.clearChart();
+                setData(pieChartPlanned,pN,pW,pS);
+            }
+        });
         return view;
     }
     void setData(PieChart pieChart, double dn, double dw, double ds)
@@ -110,11 +133,8 @@ public class Graphs extends Fragment {
         pieChart.addPieSlice(
                 new PieModel(
                         "SAVINGS",
-                        (float) ds,
+                        (float) ds,Color.parseColor("#EF5350")));
 
-
-
-                        Color.parseColor("#EF5350")));
 
 
         // To animate the pie chart
