@@ -26,6 +26,33 @@
         app:defaultNavHost="true"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.267"
         app:navGraph="@navigation/homepagebar"
-        tools:layout_editor_absoluteX="2dp" />
+        tools:layout_editor_absoluteX="0dp" />
+
+    <SearchView
+        android:id="@+id/search_bar"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="@+id/fragment"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.481"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notes"
+        app:backgroundTint="@color/teal_700"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/fragment"
+        app:layout_constraintTop_toTopOf="@+id/fragment"
+        app:layout_constraintVertical_bias="0.608" />
 </androidx.constraintlayout.widget.ConstraintLayout>
