@@ -8,12 +8,17 @@ import androidx.navigation.ui.NavigationUI;
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
 public class App_Page extends AppCompatActivity {
     public static   User thisUser;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
     static ArrayList<InExStore> inExArray = new ArrayList<InExStore>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +44,15 @@ public class App_Page extends AppCompatActivity {
     public static void addInOrEx(double amount,String type, String date,String source, String note) {
         InExStore newInEx = new InExStore(amount, type, date, source, note);
         inExArray.add(newInEx);
+    }
+    private void createNewUser() {
+
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        User newUser = new User(firebaseUser.getDisplayName(), firebaseUser.getUid());
+
+        db.collection("users").document(firebaseUser.getUid()).set(newUser);
+
     }
 
 }
