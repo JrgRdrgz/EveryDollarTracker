@@ -79,11 +79,11 @@ public class Dashboard extends Fragment {
                 startActivity(intent);
             }
         });
-        Button settings = (Button) view.findViewById(R.id.profile_id);
-        settings.setOnClickListener(new View.OnClickListener() {
+        Button profile_page = (Button) view.findViewById(R.id.profile_id);
+        profile_page.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), profile_page.class);
+                Intent intent = new Intent(getActivity(), Settings.class);
                 startActivity(intent);
             }
         });

@@ -6,13 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class profile_page extends AppCompatActivity {
+public class Settings extends AppCompatActivity {
 
     TextView Email, FullName;
     ImageView imageView;
@@ -21,7 +20,7 @@ public class profile_page extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_page);
+        setContentView(R.layout.activity_settings);
 
         ImageView imageView = (ImageView) findViewById(R.id.image_id);
 
@@ -33,8 +32,6 @@ public class profile_page extends AppCompatActivity {
         Cancel = (Button) findViewById(R.id.cancel_id);
         Remove = (Button) findViewById(R.id.remove_id);
         Logout = (Button) findViewById(R.id.logout_id);
-
-        showalldata();
 
         Cancel.setOnClickListener(new View.OnClickListener()
         {
@@ -55,18 +52,5 @@ public class profile_page extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-    }
-
-    private void showalldata() {
-
-        Intent intent = getIntent();
-        String userName = intent.getStringExtra("name");
-        String userEmail = intent.getStringExtra("email");
-
-        FullName.setText(userName);
-        Email.setText(userEmail);
-
     }
 }

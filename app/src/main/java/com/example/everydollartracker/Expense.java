@@ -41,7 +41,7 @@ public class Expense extends AppCompatActivity {
 
 
     public void goToHomeE (View view) {
-        startActivity(new Intent(getApplicationContext(), Dashboard.class ));
+        startActivity(new Intent(getApplicationContext(), App_Page.class ));
         Toast.makeText(this, "Go To Homepage", Toast.LENGTH_SHORT).show();
     }
 
