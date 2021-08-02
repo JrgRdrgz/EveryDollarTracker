@@ -1,9 +1,11 @@
 package com.example.everydollartracker;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,7 +14,20 @@ import android.widget.Toast;
 
 import static com.example.everydollartracker.R.id.editTextAmountIn;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class Income extends AppCompatActivity {
+    private static final String TAG = "Income";
+    private FirebaseUser user;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
     EditText editTextAmountIn,editTextDateIn,editTextNoteIn;
     Button buttonCancelIn,buttonSaveIn;
     TextView selectIn;
@@ -80,8 +95,21 @@ public class Income extends AppCompatActivity {
             Toast.makeText(this, "set note to 'NONE'", Toast.LENGTH_SHORT).show();
         }
 
-        App_Page.addInOrEx(amount,type,date,source, note);
-        Toast.makeText(Income.this, "Added new income", Toast.LENGTH_LONG).show();
+        Map<String, Object> incomeToSave = new HashMap<>();
+        incomeToSave.put("Amount", amountSt);
+        incomeToSave.put("Date", date);
+        incomeToSave.put("Type", type);
+        incomeToSave.put("Source", source);
+        incomeToSave.put("Note", note);
+        String uid=user.getUid();
+        DocumentReference ref = db.collection("users").document(uid).collection("Income").document();
+        String docID=ref.getId();
+        db.collection("users").document(uid).collection("income").add(incomeToSave).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            @Override
+            public void onSuccess(DocumentReference documentReference) {
+                Log.d(TAG, "Income added");
+            }
+        });
         startActivity(new Intent(getApplicationContext(), App_Page.class ));// back to home after done
     }
 
