@@ -16,6 +16,11 @@
         android:label="fragment_statistics"
         tools:layout="@layout/fragment_statistics" />
     <fragment
+        android:id="@+id/settings"
+        android:name="com.example.everydollartracker.Settings"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_profilepage" />
+    <fragment
         android:id="@+id/dashboard"
         android:name="com.example.everydollartracker.Dashboard"
         android:label="fragment_dashboard"
