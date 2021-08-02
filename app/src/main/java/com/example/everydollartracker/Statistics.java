@@ -78,6 +78,7 @@ public class Statistics extends Fragment {
         textViewOS.setText(funOS());
         textViewOW.setText(funOW());
         textViewON.setText(funON());
+        textViewME.setText(App_Page.userID);
 
         return view;
     }
