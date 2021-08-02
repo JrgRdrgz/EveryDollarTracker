@@ -14,20 +14,26 @@
         <action
             android:id="@+id/action_fragment_dashboard_to_graphs2"
             app:destination="@id/fragment_graphs" />
+        <action
+            android:id="@+id/fragment_dashboard2"
+            app:destination="@id/fragment_stats" />
+        <action
+            android:id="@+id/fragment_dashboard4"
+            app:destination="@id/fragment_notes1" />
     </fragment>
     <fragment
         android:id="@+id/fragment_stats"
         android:name="com.example.everydollartracker.Statistics"
         android:label="Stats"
-        tools:layout="@layout/fragment_statistics">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/fragment_dashboard" />
-    </fragment>
+        tools:layout="@layout/fragment_statistics"/>
     <fragment
         android:id="@+id/fragment_graphs"
         android:name="com.example.everydollartracker.Graphs"
         android:label="fragment_graphs"
         tools:layout="@layout/fragment_graphs" />
+    <fragment
+        android:id="@+id/fragment_notes1"
+        android:name="com.example.everydollartracker.Notes"
+        android:label="fragment_notes"
+        tools:layout="@layout/fragment_notes" />
 </navigation>
