@@ -106,34 +106,4 @@ public class login extends AppCompatActivity implements View.OnClickListener {
             }
         });
     }
-
-   /* private void isUser() {
-        String UserEnteredEmail = editTextemail.getText().toString().trim();
-
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
-
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot)
-            {
-                if(snapshot.exists())
-                {
-                    String namefromDB = snapshot.child(UserEnteredEmail).child("name").getValue(String.class);
-                    String emailfromDB = snapshot.child(UserEnteredEmail).child("email").getValue(String.class);
-
-                    Intent intent = new Intent(login.this, profile_page.class);
-
-                    intent.putExtra("name", namefromDB);
-                    intent.putExtra("email", emailfromDB);
-
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }*/
 }
