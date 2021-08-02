@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Dashboard">
+    tools:context=".Dashboard"
+    android:orientation="vertical"
+    >
+
 
     <SearchView
         android:id="@+id/search_bar"
@@ -14,7 +17,6 @@
         android:layout_marginLeft="4dp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/fragment"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -35,17 +37,33 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/totalIncome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Daily Income Remaining = $0"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/search_bar"
+        android:layout_marginTop="8dp"
+        android:background="#3EB489"
+        />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dashboard"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.402" />
+        app:layout_constraintTop_toBottomOf="@id/totalIncome"
+        tools:ignore="MissingConstraints">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="78dp"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <Button
         android:id="@+id/addexpense"
@@ -53,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="268dp"
         android:layout_marginLeft="268dp"
-        android:layout_marginTop="580dp"
+        android:layout_marginTop="544dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:text="Add Expense"
@@ -62,18 +80,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/addincome"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="151dp"
-        android:text="Add Income"
+        android:layout_marginStart="325dp"
+        android:layout_marginLeft="325dp"
         app:layout_constraintBottom_toTopOf="@+id/addexpense"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.953"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:layout_constraintVertical_bias="1.0" />
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

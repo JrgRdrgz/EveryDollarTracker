@@ -16,4 +16,9 @@
     <string name="textview">TextView</string>
     <string name="string_textview" />
     <string name="optional">(Optional)</string>
+    <string-array name="incomecategories">
+        <item>Select Income Category</item>
+        <item>Salary</item>
+        <item>Hourly Job</item>
+    </string-array>
 </resources>
