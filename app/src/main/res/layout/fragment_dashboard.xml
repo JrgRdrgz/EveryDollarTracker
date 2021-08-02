@@ -2,11 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_dashboard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Dashboard"
     android:orientation="vertical"
-    >
+    tools:context=".Dashboard">
 
 
     <SearchView
@@ -27,15 +27,14 @@
         android:id="@+id/totalIncome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Daily Income Remaining = $0"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/search_bar"
         android:layout_marginTop="8dp"
         android:background="#3EB489"
-        />
+        android:gravity="center"
+        android:text="Daily Income Remaining = $0"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/search_bar" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="wrap_content"
@@ -48,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="78dp"/>
+            tools:layout_editor_absoluteY="78dp" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
@@ -58,14 +57,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="268dp"
         android:layout_marginLeft="268dp"
-        android:layout_marginTop="508dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:text="Add Expense"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.867" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -73,12 +73,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="325dp"
         android:layout_marginLeft="325dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toTopOf="@+id/addexpense"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/profile_id"
@@ -87,22 +89,10 @@
         android:text="Profile Page"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.027"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.876" />
-
-    <Button
-        android:id="@+id/addincome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="add income"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.951"
-        app:layout_constraintStart_toEndOf="@+id/profile_id"
-        app:layout_constraintTop_toBottomOf="@+id/addexpense"
-        app:layout_constraintVertical_bias="0.205" />
+        app:layout_constraintVertical_bias="0.866" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

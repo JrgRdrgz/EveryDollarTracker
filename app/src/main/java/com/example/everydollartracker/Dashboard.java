@@ -97,14 +97,15 @@ public class Dashboard extends Fragment {
             }
         });
 
-        Button addexpense=(Button) view.findViewById(R.id.addexpense);
+       /* Button addexpense=(Button) view.findViewById(R.id.addexpense);
         addexpense.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), Expense.class);
                 startActivity(intent);
             }
-        });
+        });*/
+
         Button settings = (Button) view.findViewById(R.id.profile_id);
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
