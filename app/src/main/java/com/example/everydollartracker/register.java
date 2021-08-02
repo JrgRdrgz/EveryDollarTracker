@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.audiofx.Virtualizer;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -17,10 +18,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
-import org.w3c.dom.Text;
 
 public class register extends AppCompatActivity {
 
@@ -48,7 +52,7 @@ public class register extends AppCompatActivity {
                 }
             }
         });
-        editTextname = (EditText) findViewById(R.id.name);
+        editTextname = (EditText) findViewById(R.id.name_id);
         editTextemail = (EditText) findViewById(R.id.email);
         editTextpassword = (EditText) findViewById(R.id.password);
 
@@ -58,6 +62,7 @@ public class register extends AppCompatActivity {
         String email=editTextemail.getText().toString().trim();
         String name=editTextname.getText().toString().trim();
         String password=editTextpassword.getText().toString().trim();
+
 
         if(name.isEmpty()){
             editTextname.setError("This field is required");
@@ -116,5 +121,29 @@ public class register extends AppCompatActivity {
                         }
                     }
                 });
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists())
+                {
+                    String emailfromDB = snapshot.child(email).child("email").getValue(String.class);
+                    String namefromDB = snapshot.child(name).child("name").getValue(String.class);
+
+                    Intent intent = new Intent(getApplicationContext(), profile_page.class);
+
+                    intent.putExtra("name", namefromDB);
+                    intent.putExtra("email", emailfromDB);
+
+                    startActivity(intent);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }
