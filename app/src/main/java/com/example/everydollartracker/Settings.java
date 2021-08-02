@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
+import com.google.firebase.storage.FirebaseStorage;
 
 public class Settings extends AppCompatActivity
 {
@@ -41,8 +42,13 @@ public class Settings extends AppCompatActivity
         Logout = findViewById(R.id.logout_id);
         Updateimage = findViewById(R.id.imageb_id);
 
-        String emailVal = Email.getText().toString().trim();
-        String FullNameVal = FullName.getText().toString().trim();
+        Updateimage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseStorage storage = FirebaseStorage.getInstance();
+
+            }
+        });
 
         Cancel.setOnClickListener(new View.OnClickListener()
         {
