@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Settings extends AppCompatActivity {
 
@@ -50,6 +51,19 @@ public class Settings extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null)
+        {
+            String name = user.getDisplayName();
+            String email = user.getEmail();
+            FullName.setText(name);
+            Email.setText(email);
+        }
+        else
+        {
+
+        }
 
     }
 }
