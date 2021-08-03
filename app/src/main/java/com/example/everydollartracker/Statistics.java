@@ -85,7 +85,7 @@ public class Statistics extends Fragment {
         String textA="";
         double xa=0.0;
         //for (int i = 0; i < App_Page.inExArray.size(); i++)
-        for (InExStore i : App_Page.thisUser.inExArray){
+        for (InExStore i : App_Page.inExArray){
             if(i.getType().equals("INCOME")){
                 xa=xa+ i.getAmount();
             }
@@ -98,7 +98,7 @@ public class Statistics extends Fragment {
         String textB="";
         double xb=0.0;
         //for (int i = 0; i < App_Page.inExArray.size(); i++)
-        for (InExStore i : App_Page.thisUser.inExArray){
+        for (InExStore i : App_Page.inExArray){
             if(i.getType().equals("EXPENSES")){
                 xb=xb+i.getAmount();
             }
@@ -112,7 +112,7 @@ public class Statistics extends Fragment {
         String textB="";
         double xb=0.0;
         //for (int i = 0; i < App_Page.inExArray.size(); i++)
-        for (InExStore i : App_Page.thisUser.inExArray){
+        for (InExStore i : App_Page.inExArray){
             if(i.getSource().equals("SAVINGS")){
                 xb=xb+i.getAmount();
             }
@@ -126,7 +126,7 @@ public class Statistics extends Fragment {
         String textB="";
         double xb=0.0;
         //for (int i = 0; i < App_Page.inExArray.size(); i++)
-        for (InExStore i : App_Page.thisUser.inExArray){
+        for (InExStore i : App_Page.inExArray){
             if(i.getSource().equals("WANTS")){
                 xb=xb+i.getAmount();
             }
@@ -140,7 +140,7 @@ public class Statistics extends Fragment {
         String textB="";
         double xb=0.0;
         //for (int i = 0; i < App_Page.inExArray.size(); i++)
-        for (InExStore i : App_Page.thisUser.inExArray){
+        for (InExStore i : App_Page.inExArray){
             if(i.getSource().equals("NEEDS")){
                 xb=xb+i.getAmount();
             }
