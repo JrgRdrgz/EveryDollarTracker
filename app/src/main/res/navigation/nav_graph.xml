@@ -3,26 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/fragment_dashboard">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.everydollartracker.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:id="@+id/fragment_dashboard"
+        android:name="com.example.everydollartracker.Dashboard"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_dashboard">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_fragment_dashboard_to_graphs2"
+            app:destination="@id/fragment_graphs" />
+        <action
+            android:id="@+id/fragment_dashboard2"
+            app:destination="@id/fragment_stats" />
+        <action
+            android:id="@+id/fragment_dashboard4"
+            app:destination="@id/fragment_notes1" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.everydollartracker.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
+        android:id="@+id/fragment_stats"
+        android:name="com.example.everydollartracker.Statistics"
+        android:label="Stats"
+        tools:layout="@layout/fragment_statistics"/>
+    <fragment
+        android:id="@+id/fragment_graphs"
+        android:name="com.example.everydollartracker.Graphs"
+        android:label="fragment_graphs"
+        tools:layout="@layout/fragment_graphs" />
+    <fragment
+        android:id="@+id/fragment_notes1"
+        android:name="com.example.everydollartracker.Notes"
+        android:label="fragment_notes"
+        tools:layout="@layout/fragment_notes" />
 </navigation>
