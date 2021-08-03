@@ -38,6 +38,7 @@ import java.util.Date;
  * create an instance of this fragment.
  */
 public class Dashboard extends Fragment {
+    private DatabaseReference expenseref;
     private DatabaseReference incomeref;
     private FirebaseAuth mAuth;
     // TODO: Rename parameter arguments, choose names that match
@@ -86,8 +87,18 @@ public class Dashboard extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
+
         mAuth = FirebaseAuth.getInstance();
-        incomeref= FirebaseDatabase.getInstance().getReference().child("dailyIncome").child(mAuth.getCurrentUser().getUid());
+        expenseref= FirebaseDatabase.getInstance().getReference().child("dailyIncome").child(mAuth.getCurrentUser().getUid());
+        incomeref= FirebaseDatabase.getInstance().getReference().child("dailyExpenses").child(mAuth.getCurrentUser().getUid());
+
+        FloatingActionButton fab2 = (FloatingActionButton) view.findViewById(R.id.fab2);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addExpense();
+            }
+        });
 
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -96,15 +107,6 @@ public class Dashboard extends Fragment {
                 addItem();
             }
         });
-
-       /* Button addexpense=(Button) view.findViewById(R.id.addexpense);
-        addexpense.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Expense.class);
-                startActivity(intent);
-            }
-        });*/
 
         Button settings = (Button) view.findViewById(R.id.profile_id);
         settings.setOnClickListener(new View.OnClickListener() {
@@ -117,6 +119,63 @@ public class Dashboard extends Fragment {
         });
         return view;
 
+    }
+
+    private void addExpense() {
+        AlertDialog.Builder myExpense = new AlertDialog.Builder(getActivity());
+        LayoutInflater inflater = LayoutInflater.from(getActivity());
+        View view = inflater.inflate(R.layout.activity_expense, null);
+        myExpense.setView(view);
+        final AlertDialog dialog = myExpense.create();
+        dialog.setCancelable(false);
+
+        final Spinner categorySpinner = view.findViewById(R.id.spinner);
+        final EditText amount = view.findViewById(R.id.expenseAmount);
+        final Button cancel = view.findViewById(R.id.expensecancel);
+        final Button add = view.findViewById(R.id.expenseadd);
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String expenseAmount = amount.getText().toString();
+                String expenseCategory = categorySpinner.getSelectedItem().toString();
+
+                if(TextUtils.isEmpty(expenseAmount)){
+                    amount.setError("Please enter Expense Amount");
+                    return;
+                }
+                if(expenseCategory.equals("Select Expense Category")){
+                    Toast.makeText(getActivity(), "Select A Category", Toast.LENGTH_SHORT).show();
+                }else{
+                    String id =expenseref.push().getKey();
+                    DateFormat dateFormat=new SimpleDateFormat("dd-MM-yyyy");
+                    Calendar calen= Calendar.getInstance();
+                    String date=dateFormat.format(calen.getTime());
+
+                    Data data = new Data(expenseCategory,date,id,8,Double.parseDouble(expenseAmount));
+                    expenseref.child(id).setValue(data).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful()){
+                                Toast.makeText(getActivity(),"Expense added", Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(getActivity(),"Failed to add expense", Toast.LENGTH_SHORT).show();
+                            }
+
+                        }
+                    });
+
+                }
+                dialog.dismiss();
+            }
+        });
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
     }
 
     private void addItem() {

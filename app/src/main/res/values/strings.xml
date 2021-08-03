@@ -21,4 +21,11 @@
         <item>Salary</item>
         <item>Hourly Job</item>
     </string-array>
+
+    <string-array name="expensecategories">
+        <item>Select Expense Category</item>
+        <item>Wants</item>
+        <item>Needs</item>
+        <item>Savings</item>
+    </string-array>
 </resources>
