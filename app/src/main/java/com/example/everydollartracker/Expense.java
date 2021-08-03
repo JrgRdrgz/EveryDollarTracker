@@ -41,7 +41,7 @@ public class Expense extends AppCompatActivity {
 
 
     public void goToHomeE (View view) {
-        startActivity(new Intent(getApplicationContext(), Dashboard.class ));
+        startActivity(new Intent(getApplicationContext(), App_Page.class ));
         Toast.makeText(this, "Go To Homepage", Toast.LENGTH_SHORT).show();
     }
 
@@ -77,6 +77,7 @@ public class Expense extends AppCompatActivity {
             editTextNoteEx.setText("NONE");
             Toast.makeText(this, "set note to 'NONE'", Toast.LENGTH_SHORT).show();
         }
+        note = editTextNoteEx.getText().toString().trim();
 
         App_Page.addInOrEx(amount,type,date,source, note);
         Toast.makeText(this, "Added new Expenses", Toast.LENGTH_LONG).show();

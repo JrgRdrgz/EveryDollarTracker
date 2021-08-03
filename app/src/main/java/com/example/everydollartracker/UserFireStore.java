@@ -1,10 +1,15 @@
 package com.example.everydollartracker;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class UserFireStore {
-    public List<InExStore> inExStoreArrayList;
+
+    public List<InExStore> inExArray;
+    List<InExStore> getList(){
+        return inExArray;
+    }
 
     /*public UserFireStore(){
 
