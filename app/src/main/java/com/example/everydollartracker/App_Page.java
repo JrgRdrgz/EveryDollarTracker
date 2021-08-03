@@ -22,10 +22,9 @@ import java.util.List;
 import java.util.Map;
 
 public class App_Page extends AppCompatActivity {
-    public static   User thisUser= new User("a","b");
-    public static UserFireStore a;
+    public static UserFireStore thisUser;
     public static int count =0;
-    static List<InExStore> inExArray = new ArrayList<>();
+    //static List<InExStore> inExArray = new ArrayList<>();
     static FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
     static String userID = firebaseUser.getUid();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -40,26 +39,6 @@ public class App_Page extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         NavController navController = Navigation.findNavController(this,  R.id.fragment);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
-        ////Test code to load array frome firebase here
-        // test ver 1
-        //db.collection("users2").document(userID);
-        /*
-        FirebaseFirestore.getInstance().collection("users")
-        .document(userID).get()
-        .addOnCompleteListener(new
-        OnCompleteListener<DocumentSnapshot>(){
-        @Override
-        public void onComplete(@NonNull Task<DocumentSnapshot> task){
-        DocumentSnapshot document=task.getResult();
-            UserFireStore a = document.toObject(UserFireStore.class);
-        UserFireStore user=document.toObject(UserFireStore.class);
-        inExArray.addAll(UserFireStore.inExStoreArrayList);
-        }
-        });*/
-        //inExArray= a.getInExStores();
-        //inExArray.addAll(inExArray2);
-        //test ver 2
-        // load array
 
 
             FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
@@ -70,8 +49,8 @@ public class App_Page extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     //if (document.exists()) {
-                        UserFireStore indexes = document.toObject(UserFireStore.class);
-                        inExArray.addAll(indexes.getList());
+                    thisUser = document.toObject(UserFireStore.class);
+                    //thisUser.inExArray.addAll(indexes.getList());
                     count++;
                     //}
                 }
@@ -85,7 +64,7 @@ public class App_Page extends AppCompatActivity {
 
         if(count>0) {
             Map<String, Object> user = new HashMap<>();
-            user.put("inExArray", inExArray);
+            user.put("inExArray", thisUser.inExArray);
 
             // save data to firebase
             db.collection("users").document(userID).set(user);
@@ -107,7 +86,7 @@ public class App_Page extends AppCompatActivity {
     }
     public static void addInOrEx(double amount,String type, String date,String source, String note) {
         InExStore newInEx = new InExStore(amount, type, date, source, note);
-        inExArray.add(newInEx);
+        thisUser.inExArray.add(newInEx);
     }
     // create each user by user ID to FireStore
     private void createNewUser() {
