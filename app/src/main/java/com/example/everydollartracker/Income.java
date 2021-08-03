@@ -13,6 +13,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Income extends AppCompatActivity {
     private static final String TAG = "Income";
     private FirebaseUser user;
@@ -27,6 +31,10 @@ public class Income extends AppCompatActivity {
         editTextAmountIn=findViewById(R.id.editTextAmountIn);
         editTextDateIn=findViewById(R.id.editTextDateIn);
         editTextNoteIn=findViewById(R.id.editTextNoteIn);
+        DateFormat df = new SimpleDateFormat("dd/MM/yy");
+        Date dateobj = new Date();
+        String date=df.format(dateobj);
+        editTextDateIn.setText(date);
 
     }
     public void se1In (View view) {
@@ -52,6 +60,12 @@ public class Income extends AppCompatActivity {
     }
 
     public void addNewIncome (View view) {
+        //get date
+        /*DateFormat df = new SimpleDateFormat("dd/MM/yy");
+        Date dateobj = new Date();
+        String date=df.format(dateobj);
+        editTextDateIn.setText(date);*/
+        //
         EditText editTextAmountIn, editTextDateIn, editTextNoteIn;
         editTextAmountIn = findViewById(R.id.editTextAmountIn);
         editTextDateIn = findViewById(R.id.editTextDateIn);
@@ -63,6 +77,7 @@ public class Income extends AppCompatActivity {
         String note = editTextNoteIn.getText().toString().trim();
         String source = selectIn.getText().toString().trim();
         String type = "INCOME";
+
 
 
         if (amountSt.isEmpty()) {
