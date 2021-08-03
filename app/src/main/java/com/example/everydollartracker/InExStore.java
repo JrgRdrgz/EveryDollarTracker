@@ -25,7 +25,7 @@ public class InExStore {
     public String getSource() {
         return source;
     }
-    public String getTote() {
+    public String getNote() {
         return note;
     }
     //
