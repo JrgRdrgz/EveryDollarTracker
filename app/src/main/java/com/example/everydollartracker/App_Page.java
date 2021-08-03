@@ -48,11 +48,11 @@ public class App_Page extends AppCompatActivity {
             userIdRef.get().addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
-                    //if (document.exists()) {
+                    if (document.exists()) {
                     thisUser = document.toObject(UserFireStore.class);
                     //thisUser.inExArray.addAll(indexes.getList());
+                    }
                     count++;
-                    //}
                 }
             });
 
