@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +19,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.storage.FirebaseStorage;
 
 public class Settings extends AppCompatActivity
@@ -98,16 +100,65 @@ public class Settings extends AppCompatActivity
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null)
         {
-            String name = user.getDisplayName();
-            String email = user.getEmail();
-            FullName.setText(name);
-            Email.setText(email);
+            for (UserInfo profile : user.getProviderData())
+            {
+                String name = profile.getDisplayName();
+                String email = profile.getEmail();
+                FullName.setText(name);
+                Email.setText(email);
+
+            }
+
 
         }
         else
         {
 
         }
+
+        Save.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                String FullNameVal = FullName.getEditableText().toString().trim();
+                String EmailVal = Email.getEditableText().toString().trim();
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(FullNameVal).build();
+                FullName.setText(FullNameVal);
+
+                user.updateProfile(profileUpdates)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Log.d(TAG, "User profile updated.");
+                                }
+                            }
+                        });
+
+                if (FullNameVal.isEmpty())
+                {
+                    FullName.setError("Enter Your Name");
+                    FullName.requestFocus();
+                    return;
+                }
+
+                if (EmailVal.isEmpty())
+                {
+                    Email.setError("Enter Your Email");
+                    Email.requestFocus();
+                    return;
+                }
+
+
+
+
+                Intent intent = new Intent(getApplicationContext(), App_Page.class);
+                startActivity(intent);
+
+            }
+        });
 
 
 
