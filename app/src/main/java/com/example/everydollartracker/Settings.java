@@ -44,6 +44,25 @@ public class Settings extends AppCompatActivity
         Logout = findViewById(R.id.logout_id);
         Updateimage = findViewById(R.id.imageb_id);
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null)
+        {
+            for (UserInfo profile : user.getProviderData())
+            {
+                String name = profile.getDisplayName();
+                String email = profile.getEmail();
+                FullName.setText(name);
+                Email.setText(email);
+
+            }
+
+
+        }
+        else
+        {
+
+        }
+
         Updateimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,25 +116,6 @@ public class Settings extends AppCompatActivity
             }
         });
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null)
-        {
-            for (UserInfo profile : user.getProviderData())
-            {
-                String name = profile.getDisplayName();
-                String email = profile.getEmail();
-                FullName.setText(name);
-                Email.setText(email);
-
-            }
-
-
-        }
-        else
-        {
-
-        }
-
         Save.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -150,9 +150,6 @@ public class Settings extends AppCompatActivity
                     Email.requestFocus();
                     return;
                 }
-
-
-
 
                 Intent intent = new Intent(getApplicationContext(), App_Page.class);
                 startActivity(intent);
