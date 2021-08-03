@@ -89,8 +89,8 @@ public class Dashboard extends Fragment {
 
 
         mAuth = FirebaseAuth.getInstance();
-        expenseref= FirebaseDatabase.getInstance().getReference().child("dailyIncome").child(mAuth.getCurrentUser().getUid());
-        incomeref= FirebaseDatabase.getInstance().getReference().child("dailyExpenses").child(mAuth.getCurrentUser().getUid());
+        expenseref= FirebaseDatabase.getInstance().getReference().child("dailyExpenses").child(mAuth.getCurrentUser().getUid());
+        incomeref= FirebaseDatabase.getInstance().getReference().child("dailyIncome").child(mAuth.getCurrentUser().getUid());
 
         FloatingActionButton fab2 = (FloatingActionButton) view.findViewById(R.id.fab2);
         fab2.setOnClickListener(new View.OnClickListener() {
@@ -129,7 +129,7 @@ public class Dashboard extends Fragment {
         final AlertDialog dialog = myExpense.create();
         dialog.setCancelable(false);
 
-        final Spinner categorySpinner = view.findViewById(R.id.spinner);
+        final Spinner categorySpinner = view.findViewById(R.id.expensespinner);
         final EditText amount = view.findViewById(R.id.expenseAmount);
         final Button cancel = view.findViewById(R.id.expensecancel);
         final Button add = view.findViewById(R.id.expenseadd);
@@ -161,10 +161,8 @@ public class Dashboard extends Fragment {
                             }else{
                                 Toast.makeText(getActivity(),"Failed to add expense", Toast.LENGTH_SHORT).show();
                             }
-
                         }
                     });
-
                 }
                 dialog.dismiss();
             }
@@ -223,7 +221,6 @@ public class Dashboard extends Fragment {
                     });
                 }
                 dialog.dismiss();
-
             }
         });
         cancel.setOnClickListener(new View.OnClickListener() {
