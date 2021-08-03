@@ -6,44 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".Income">
 
-    <Button
-        android:id="@+id/buttonBonusIn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="se2In"
-        android:text="Bonus"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.445"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.487" />
 
-    <Button
-        android:id="@+id/buttonSalaryIn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="se1In"
-        android:text="Salary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.066"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.487" />
 
-    <Button
-        android:id="@+id/buttonAllowanceIn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="se3In"
-        android:text="Allowance"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.912"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.487" />
+
+
 
     <TextView
         android:id="@+id/textView"
@@ -84,17 +50,28 @@
         app:layout_constraintVertical_bias="0.248" />
 
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/source"
+        app:layout_constraintBottom_toTopOf="@id/sourcespinner"
+        app:layout_constraintTop_toBottomOf="@id/date"
         android:text="Income Source"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.075"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.382" />
+        android:textAlignment="center"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        />
+
+    <Spinner
+        android:id="@+id/sourcespinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/note"
+        app:layout_constraintTop_toBottomOf="@+id/source"
+        tools:ignore="SpeakableTextPresentCheck"
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
         android:id="@+id/selectIn"
@@ -122,7 +99,7 @@
         app:layout_constraintVertical_bias="0.619" />
 
     <EditText
-        android:id="@+id/editTextAmountIn"
+        android:id="@+id/amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -137,7 +114,7 @@
         app:layout_constraintVertical_bias="0.12" />
 
     <EditText
-        android:id="@+id/editTextDateIn"
+        android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -152,7 +129,7 @@
         app:layout_constraintVertical_bias="0.241" />
 
     <EditText
-        android:id="@+id/editTextNoteIn"
+        android:id="@+id/note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -171,7 +148,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#F10A0A"
-        android:onClick="goToHome"
         android:text="Cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -181,11 +157,10 @@
         app:layout_constraintVertical_bias="0.754" />
 
     <Button
-        android:id="@+id/buttonSaveIn"
+        android:id="@+id/save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#12E627"
-        android:onClick="addNewIncome"
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

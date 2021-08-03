@@ -26,6 +26,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
     private EditText editTextemail, editTextpassword;
     private Button loginbutton;
 
+
     private FirebaseAuth mAuth;
 
     @Override
