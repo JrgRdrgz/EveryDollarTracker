@@ -2,10 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_profile_page"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".profile_page">
+    android:id="@+id/activity_settings"
+    tools:context=".Settings">
 
     <ImageView
         android:id="@+id/image_id"
@@ -23,14 +23,13 @@
         android:id="@+id/imageb_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="update image"
         android:fontFamily="@font/amiko"
+        android:text="update image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_id"
-        app:layout_constraintVertical_bias="0.056" />
+        app:layout_constraintVertical_bias="0.127" />
 
     <Button
         android:id="@+id/cancel_id"
@@ -100,34 +99,31 @@
         app:layout_constraintTop_toBottomOf="@+id/save_id"
         app:layout_constraintVertical_bias="1.0" />
 
-    <TextView
-        android:id="@+id/name_id"
-        android:layout_width="320dp"
+    <EditText
+        android:id="@+id/fullname_id"
+        android:layout_width="350dp"
         android:layout_height="60dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/save_id"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        android:hint="Name"
-        android:fontFamily="@font/amiko"
         app:layout_constraintTop_toBottomOf="@+id/imageb_id"
-        app:layout_constraintVertical_bias="0.292" />
+        app:layout_constraintVertical_bias="0.445"
+        tools:ignore="SpeakableTextPresentCheck" />
 
-    <TextView
+    <EditText
         android:id="@+id/email_id"
-        android:layout_width="320dp"
+        android:layout_width="350dp"
         android:layout_height="60dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:hint="Email"
-        android:fontFamily="@font/amiko"
+        android:ems="10"
+        android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/cancel_id"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_id"
-        app:layout_constraintVertical_bias="0.234" />
-
+        app:layout_constraintTop_toBottomOf="@+id/fullname_id"
+        app:layout_constraintVertical_bias="0.306"
+        tools:ignore="SpeakableTextPresentCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>
