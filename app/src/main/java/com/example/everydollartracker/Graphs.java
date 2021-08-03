@@ -1,6 +1,5 @@
 package com.example.everydollartracker;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
