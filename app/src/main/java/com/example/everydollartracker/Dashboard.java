@@ -86,6 +86,8 @@ public class Dashboard extends Fragment {
                 startActivity(intent);
             }
         });
+
+
         return view;
 
     }
