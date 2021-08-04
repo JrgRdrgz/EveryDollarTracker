@@ -10,6 +10,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Expense extends AppCompatActivity {
     EditText editTextAmountEx,editTextDateEx,editTextNoteEx;
     Button buttonCancelEx,buttonSaveEx;
@@ -21,6 +25,10 @@ public class Expense extends AppCompatActivity {
         editTextAmountEx=findViewById(R.id.editTextAmountEx);
         editTextDateEx=findViewById(R.id.editTextDateEx);
         editTextNoteEx=findViewById(R.id.editTextNoteEx);
+        DateFormat df = new SimpleDateFormat("dd/MM/yy");
+        Date dateobj = new Date();
+        String date=df.format(dateobj);
+        editTextDateEx.setText(date);
 
     }
     public void se1Ex (View view) {
