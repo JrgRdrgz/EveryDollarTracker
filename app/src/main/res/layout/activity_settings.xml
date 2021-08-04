@@ -9,27 +9,28 @@
 
     <ImageView
         android:id="@+id/image_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="148dp"
+        android:layout_height="151dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.073"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintVertical_bias="0.071"
+        app:srcCompat="@drawable/user_icon" />
 
     <Button
         android:id="@+id/imageb_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="404dp"
         android:fontFamily="@font/amiko"
         android:text="update image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_id"
-        app:layout_constraintVertical_bias="0.127" />
+        app:layout_constraintVertical_bias="0.79" />
 
     <Button
         android:id="@+id/cancel_id"
@@ -110,13 +111,14 @@
         app:layout_constraintHorizontal_bias="0.372"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageb_id"
-        app:layout_constraintVertical_bias="0.406"
+        app:layout_constraintVertical_bias="0.357"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/email_id"
         android:layout_width="350dp"
         android:layout_height="60dp"
+        android:layout_marginBottom="64dp"
         android:ems="10"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/cancel_id"
@@ -124,7 +126,8 @@
         app:layout_constraintHorizontal_bias="0.372"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fullname_id"
-        app:layout_constraintVertical_bias="0.144"
+        app:layout_constraintVertical_bias="0.937"
         tools:ignore="SpeakableTextPresentCheck" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

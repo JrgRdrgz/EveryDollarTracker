@@ -82,7 +82,7 @@ public class Dashboard extends Fragment {
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), profile_page.class);
+                Intent intent = new Intent(getActivity(), Settings.class);
                 startActivity(intent);
             }
         });
