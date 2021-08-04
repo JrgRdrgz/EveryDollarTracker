@@ -1,6 +1,7 @@
 package com.example.everydollartracker;
 
 public class InExStore {
+
     //User.addInEx(amount,type,date,source, note);
     private String type,date,source, note;
     private double amount;
@@ -12,6 +13,15 @@ public class InExStore {
         this.source = source;
         this.note = note;
     }
+
+    public InExStore(String type, String date, String source, String note, double amount) {
+        this.type = type;
+        this.date = date;
+        this.source = source;
+        this.note = note;
+        this.amount = amount;
+    }
+
     //
     public double getAmount() {
         return amount;
@@ -44,4 +54,5 @@ public class InExStore {
     public void setNote(String note) {
         this.note = note;
     }
+
 }
