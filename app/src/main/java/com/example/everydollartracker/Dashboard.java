@@ -122,8 +122,6 @@ public class Dashboard extends Fragment{
         userlist= new ArrayList<InExStore>();
         myadapter = new adapter(getActivity(), userlist);
         recyclerView.setAdapter(myadapter);
-
-
         EventChange();
 
         return view;
@@ -131,7 +129,7 @@ public class Dashboard extends Fragment{
     }
 
     private void EventChange() {
-        db.collection("users")
+        db.collection("users").document("nLhuxjHFPHcbORUj9U4jYbFqmH52").collection("inExArray")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
