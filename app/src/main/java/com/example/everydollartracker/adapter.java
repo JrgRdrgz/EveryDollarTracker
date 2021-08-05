@@ -1,6 +1,7 @@
 package com.example.everydollartracker;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -22,11 +23,22 @@ public class adapter extends RecyclerView.Adapter<adapter.ViewHolder>{
     @NonNull
     @Override
     public adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+
+        View v = LayoutInflater.from(context).inflate(R.layout.incomelist, parent,false);
+
+        return new ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull adapter.ViewHolder holder, int position) {
+        InExStore user = userlist.get(position);
+        holder.amount.setText(String.valueOf(user.amount));
+        holder.type.setText((user.type));
+        holder.date.setText((user.date));
+        holder.note.setText((user.note));
+        holder.source.setText((user.source));
+
+
 
     }
 
@@ -40,7 +52,16 @@ public class adapter extends RecyclerView.Adapter<adapter.ViewHolder>{
         TextView type, amount, source, date, note;
 
         public ViewHolder(@NonNull View itemView) {
+
             super(itemView);
+            type = itemView.findViewById(R.id.dashboardtype);
+            amount = itemView.findViewById(R.id.dashboardamount);
+            source = itemView.findViewById(R.id.dahsboardsource);
+            date = itemView.findViewById(R.id.dashboarddate);
+            note = itemView.findViewById(R.id.dashboardnote);
+
+
+
         }
     }
 }
