@@ -43,6 +43,7 @@ public class Settings extends AppCompatActivity
     ImageView imageView;
     Button Save, Cancel, Remove, Logout, Updateimage;
     StorageReference storageReference;
+    FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -76,8 +77,10 @@ public class Settings extends AppCompatActivity
         else
         {}
 
+        fAuth = FirebaseAuth.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
-        StorageReference profileR = storageReference.child("profile.jpg");
+
+        StorageReference profileR = storageReference.child("Users/" + fAuth.getCurrentUser().getUid() + "/profile.jpg");
         profileR.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
@@ -204,7 +207,7 @@ public class Settings extends AppCompatActivity
     }
 
     private void uploadImagetoFirebase(Uri imageUri) {
-        StorageReference file = storageReference.child("profile.jpg");
+        StorageReference file = storageReference.child("Users/" + fAuth.getCurrentUser().getUid() + "/profile.jpg");
         file.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
