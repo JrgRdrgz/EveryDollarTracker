@@ -2,9 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:id="@+id/activity_settings"
+    android:layout_width="match_parent"
+    android:background="#FCF7DE"
+    android:layout_height="match_parent"
     tools:context=".Settings">
 
     <ImageView
@@ -57,8 +58,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:text="save"
         android:fontFamily="@font/amiko"
+        android:text="save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/cancel_id"
         app:layout_constraintHorizontal_bias="0.157"
@@ -72,8 +73,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:text="logout"
         android:fontFamily="@font/amiko"
+        android:text="logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.865"
@@ -91,8 +92,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:text="remove account"
         android:fontFamily="@font/amiko"
+        android:text="remove account"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/logout_id"
         app:layout_constraintHorizontal_bias="0.16"
@@ -111,7 +112,7 @@
         app:layout_constraintHorizontal_bias="0.372"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageb_id"
-        app:layout_constraintVertical_bias="0.357"
+        app:layout_constraintVertical_bias="0.252"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
@@ -128,6 +129,36 @@
         app:layout_constraintTop_toBottomOf="@+id/fullname_id"
         app:layout_constraintVertical_bias="0.937"
         tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/nametext_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/amiko"
+        android:text="Name"
+        android:textColor="#3F51B5"
+        android:textColorHighlight="#E91E63"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/save_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.59" />
+
+    <TextView
+        android:id="@+id/emailtext_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textColor="#3F51B5"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/save_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nametext_id"
+        app:layout_constraintVertical_bias="0.357" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
