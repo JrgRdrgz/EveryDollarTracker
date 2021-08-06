@@ -24,6 +24,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -39,7 +40,7 @@ public class Dashboard extends Fragment{
     FirebaseFirestore db;
     ProgressDialog progressDialog;*/
     TextView incomeremaining;
-    Calendar calendar;
+    Calendar cal = Calendar.getInstance();
 
 
 
@@ -87,6 +88,7 @@ public class Dashboard extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         /*progressDialog = new ProgressDialog(getActivity());
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Loading Budget Items..");
@@ -94,14 +96,8 @@ public class Dashboard extends Fragment{
 
 
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        incomeremaining=(TextView) view.findViewById(R.id.remainingincomeamount2);
+        incomeremaining= (TextView) view.findViewById(R.id.remainingincomeamount2);
         incomeremaining.setText(getRemaining());
-
-        List<InExStore> list = new ArrayList<>();
-        list = getData();
-
-
-
 
         Button addexpense=(Button) view.findViewById(R.id.addexpense);
         addexpense.setOnClickListener(new View.OnClickListener() {
@@ -144,20 +140,14 @@ public class Dashboard extends Fragment{
         return view;
 
     }
-
-    private List<InExStore> getData() {
-        List<InExStore> list = new ArrayList<>();
-        list.add(new InExStore());
-
-        return list;
-    }
-
     String getRemaining() {
         String textA="";
-        double xa=0;
-
-
-
+        double xa=0.0;
+        for (InExStore i : App_Page.inExArray){
+            if(i.getType().equals("INCOME")){
+                xa=xa+ i.getAmount();
+            }
+        }
         textA=Double.toString(xa);
         return textA;
     }
@@ -166,7 +156,7 @@ public class Dashboard extends Fragment{
         String remainingamount ="";
         double amount = 0.0;
         double numDays = 0.0;
-        int thisMonth=(calendar.get(Calendar.MONTH))+1;
+        int thisMonth=(cal.get(Calendar.MONTH))+1;
         if(thisMonth==1){
             numDays=31;
         }else if(thisMonth==2){

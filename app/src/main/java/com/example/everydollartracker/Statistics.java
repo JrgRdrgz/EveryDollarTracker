@@ -91,7 +91,6 @@ public class Statistics extends Fragment {
             }
         }
         textA=Double.toString(xa);
-
         return textA;
     }
     String funOE(){
