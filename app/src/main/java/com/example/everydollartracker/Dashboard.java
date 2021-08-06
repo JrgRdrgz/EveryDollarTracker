@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -22,6 +23,8 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,11 +33,13 @@ import java.util.ArrayList;
  */
 public class Dashboard extends Fragment{
     public static User thisUser;
-    RecyclerView recyclerView;
+    /*TextView recyclerView;
     ArrayList<InExStore> userlist;
     adapter myadapter;
     FirebaseFirestore db;
-    ProgressDialog progressDialog;
+    ProgressDialog progressDialog;*/
+    TextView incomeremaining;
+    Calendar calendar;
 
 
 
@@ -82,13 +87,22 @@ public class Dashboard extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        progressDialog = new ProgressDialog(getActivity());
+        /*progressDialog = new ProgressDialog(getActivity());
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Loading Budget Items..");
-        progressDialog.show();
+        progressDialog.show();*/
 
 
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        incomeremaining=(TextView) view.findViewById(R.id.remainingincomeamount2);
+        incomeremaining.setText(getRemaining());
+
+        List<InExStore> list = new ArrayList<>();
+        list = getData();
+
+
+
+
         Button addexpense=(Button) view.findViewById(R.id.addexpense);
         addexpense.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,7 +128,10 @@ public class Dashboard extends Fragment{
             }
         });
 
-        recyclerView =(RecyclerView) view.findViewById(R.id.incomelist);
+
+
+
+        /*recyclerView =(RecyclerView) view.findViewById(R.id.incomelist);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
 
@@ -122,13 +139,79 @@ public class Dashboard extends Fragment{
         userlist= new ArrayList<InExStore>();
         myadapter = new adapter(getActivity(), userlist);
         recyclerView.setAdapter(myadapter);
-        EventChange();
+        EventChange();*/
 
         return view;
 
     }
 
-    private void EventChange() {
+    private List<InExStore> getData() {
+        List<InExStore> list = new ArrayList<>();
+        list.add(new InExStore());
+
+        return list;
+    }
+
+    String getRemaining() {
+        String textA="";
+        double xa=0;
+
+
+
+        textA=Double.toString(xa);
+        return textA;
+    }
+
+    private String getRemainings() {
+        String remainingamount ="";
+        double amount = 0.0;
+        double numDays = 0.0;
+        int thisMonth=(calendar.get(Calendar.MONTH))+1;
+        if(thisMonth==1){
+            numDays=31;
+        }else if(thisMonth==2){
+            numDays=28;
+        }else if(thisMonth==3){
+            numDays=31;
+        }else if(thisMonth==4){
+            numDays=30;
+        }else if(thisMonth==5){
+            numDays=31;
+        }else if(thisMonth==6){
+            numDays=30;
+        }else if(thisMonth==7){
+            numDays=31;
+        }else if(thisMonth==8){
+            numDays=31;
+        }else if(thisMonth==9){
+            numDays=30;
+        }else if(thisMonth==10){
+            numDays=31;
+        }else if(thisMonth==11){
+            numDays=30;
+        }else if(thisMonth==12){
+            numDays=31;
+        }
+
+        //for (int i = 0; i < App_Page.inExArray.size(); i++)
+        for (InExStore i : App_Page.inExArray){
+            if(i.getType().equals("INCOME")){
+                amount=amount+ i.getAmount();
+            }
+        }
+        amount=amount / numDays;
+
+        for (InExStore i : App_Page.inExArray){
+            if(i.getType().equals("EXPENSE")){
+                amount=amount - i.getAmount();
+            }
+        }
+
+        remainingamount=Double.toString(amount);
+        return remainingamount;
+    }
+
+    /*private void EventChange() {
         db.collection("users").document("nLhuxjHFPHcbORUj9U4jYbFqmH52").collection("inExArray")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
@@ -151,5 +234,5 @@ public class Dashboard extends Fragment{
                         }
                     }
                 });
-    }
+    }*/
 }

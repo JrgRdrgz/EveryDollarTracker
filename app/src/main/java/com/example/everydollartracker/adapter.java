@@ -10,58 +10,72 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-public class adapter extends RecyclerView.Adapter<adapter.ViewHolder>{
+public class adapter extends RecyclerView.Adapter<incomeListViewHolder>{
+    List<InExStore> list = Collections.emptyList();
     Context context;
-    ArrayList<InExStore> userlist;
+    ClickListener listener;
 
-    public adapter(Context context, ArrayList<InExStore> userlist) {
+    public adapter(List<InExStore> list, Context context, ClickListener listener) {
+        this.list = list;
         this.context = context;
-        this.userlist = userlist;
+        this.listener = listener;
     }
+
+
 
     @NonNull
     @Override
-    public adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public incomeListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        Context context
+                = parent.getContext();
+        LayoutInflater inflater
+                = LayoutInflater.from(context);
 
-        View v = LayoutInflater.from(context).inflate(R.layout.incomelist, parent,false);
+        // Inflate the layout
 
-        return new ViewHolder(v);
+        View photoView
+                = inflater
+                .inflate(R.layout.incomelist,
+                        parent, false);
+
+        incomeListViewHolder viewHolder = new incomeListViewHolder(photoView);
+        return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull adapter.ViewHolder holder, int position) {
-        InExStore user = userlist.get(position);
-        holder.amount.setText(String.valueOf(user.amount));
-        holder.type.setText((user.type));
-        holder.date.setText((user.date));
-        holder.note.setText((user.note));
-        holder.source.setText((user.source));
+    public void
+    onBindViewHolder(final incomeListViewHolder viewHolder,
+                     final int position)
+    {
+        /*final index = viewHolder.getAdapterPosition();*/
+        viewHolder.amount.setText(String.valueOf(list.get(position).amount));
+        viewHolder.date.setText(list.get(position).date);
+        viewHolder.note.setText(list.get(position).note);
+        viewHolder.source.setText(list.get(position).source);
+        viewHolder.type.setText(list.get(position).type);
 
-
-
+        /*viewHolder.view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                listiner.click(index);
+            }
+        });*/
     }
 
     @Override
     public int getItemCount() {
-        return userlist.size();
+        return list.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
-
-        TextView type, amount, source, date, note;
-
-        public ViewHolder(@NonNull View itemView) {
-
-            super(itemView);
-            type = itemView.findViewById(R.id.dashboardtype);
-            amount = itemView.findViewById(R.id.dashboardamount);
-            source = itemView.findViewById(R.id.dahsboardsource);
-            date = itemView.findViewById(R.id.dashboarddate);
-            note = itemView.findViewById(R.id.dashboardnote);
-
-
-
-        }
+    @Override
+    public void onAttachedToRecyclerView(
+            RecyclerView recyclerView)
+    {
+        super.onAttachedToRecyclerView(recyclerView);
     }
+
 }
