@@ -33,7 +33,7 @@
         tools:layout="@layout/fragment_graphs" />
     <fragment
         android:id="@+id/fragment_notes1"
-        android:name="com.example.everydollartracker.Notes"
+        android:name="com.example.everydollartracker.notes"
         android:label="fragment_notes"
         tools:layout="@layout/fragment_notes" />
 </navigation>
