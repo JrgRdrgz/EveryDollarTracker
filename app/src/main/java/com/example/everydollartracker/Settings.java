@@ -25,10 +25,17 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -39,7 +46,7 @@ import java.net.URI;
 public class Settings extends AppCompatActivity
 {
 
-    EditText FullName, Email;
+    EditText FullName, Email, Password;
     ImageView imageView;
     Button Save, Cancel, Remove, Logout, Updateimage;
     StorageReference storageReference;
@@ -53,6 +60,7 @@ public class Settings extends AppCompatActivity
 
         FullName = findViewById(R.id.fullname_id);
         Email = findViewById(R.id.email_id);
+        Password = findViewById(R.id.password_id);
         imageView = findViewById(R.id.image_id);
         Save = findViewById(R.id.save_id);
         Cancel = findViewById(R.id.cancel_id);
@@ -60,22 +68,22 @@ public class Settings extends AppCompatActivity
         Logout = findViewById(R.id.logout_id);
         Updateimage = findViewById(R.id.imageb_id);
 
+
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null)
         {
-            for (UserInfo profile : user.getProviderData())
-            {
-                String name = profile.getDisplayName();
-                String email = profile.getEmail();
+
+                String name = user.getDisplayName();
+                String email = user.getEmail();
                 FullName.setText(name);
                 Email.setText(email);
-
-            }
 
 
         }
         else
         {}
+
 
         fAuth = FirebaseAuth.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -153,8 +161,11 @@ public class Settings extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                String FullNameVal = FullName.getEditableText().toString().trim();
-                String EmailVal = Email.getEditableText().toString().trim();
+                String FullNameVal = FullName.getEditableText().toString();
+                String EmailVal = Email.getEditableText().toString();
+                String PasswordVal = Password.getEditableText().toString();
+
+
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(FullNameVal).build();
                 FullName.setText(FullNameVal);
@@ -164,10 +175,45 @@ public class Settings extends AppCompatActivity
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
-                                    Log.d(TAG, "User profile updated.");
+                                    Log.d(TAG, "User name updated.");
                                 }
                             }
                         });
+
+
+
+                user.updateEmail(EmailVal)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Log.d(TAG, "User email address updated.");
+                                }
+                            }
+                        });
+
+
+                user.updatePassword(PasswordVal)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Log.d(TAG, "User password updated.");
+                                }
+                            }
+                        });
+
+                AuthCredential credential = EmailAuthProvider
+                        .getCredential(EmailVal, PasswordVal);
+
+                user.reauthenticate(credential)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                Log.d(TAG, "User re-authenticated.");
+                            }
+                        });
+
 
                 if (FullNameVal.isEmpty())
                 {
@@ -225,4 +271,5 @@ public class Settings extends AppCompatActivity
             }
         });
     }
+
 }
