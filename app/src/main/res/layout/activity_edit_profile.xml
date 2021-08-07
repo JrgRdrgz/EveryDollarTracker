@@ -49,6 +49,18 @@
         app:layout_constraintTop_toBottomOf="@+id/updateemail_id"
         app:layout_constraintVertical_bias="0.222" />
 
+    <EditText
+        android:id="@+id/updatefullname_id"
+        android:layout_width="360dp"
+        android:layout_height="80dp"
+        android:ems="10"
+        android:hint="Update Your Name"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/updateemail_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/up_textview" />
+
     <Button
         android:id="@+id/updateB_id"
         android:layout_width="224dp"
@@ -61,17 +73,6 @@
         app:layout_constraintTop_toBottomOf="@+id/updatepass_id"
         app:layout_constraintVertical_bias="0.188" />
 
-    <EditText
-        android:id="@+id/updatefullname_id"
-        android:layout_width="360dp"
-        android:layout_height="80dp"
-        android:ems="10"
-        android:hint="Update Your Name"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/updateemail_id"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/up_textview" />
 
     <Button
         android:id="@+id/cancelB_id"

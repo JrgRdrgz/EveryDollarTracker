@@ -68,17 +68,6 @@ public class login extends AppCompatActivity implements View.OnClickListener {
                 break;
 
             case R.id.forgot_id:
-                forgotpassword();
-                break;
-        }
-
-    }
-
-    private void forgotpassword() {
-
-        forgotbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 EditText resetEmail = new EditText(v.getContext());
                 AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(v.getContext());
                 passwordResetDialog.setTitle("Reset Password");
@@ -111,8 +100,9 @@ public class login extends AppCompatActivity implements View.OnClickListener {
                     }
                 });
                 passwordResetDialog.create().show();
-            }
-        });
+                break;
+        }
+
     }
 
     private void loginuser() {
