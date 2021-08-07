@@ -3,8 +3,8 @@
     android:name=".EveryDollarTracker"
     package="com.example.everydollartracker">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -13,6 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EveryDollarTracker">
+        <activity
+            android:name=".Update_C"
+            android:exported="true" />
         <activity
             android:name=".Settings"
             android:exported="true" />

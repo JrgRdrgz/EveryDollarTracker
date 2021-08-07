@@ -46,9 +46,9 @@ import java.net.URI;
 public class Settings extends AppCompatActivity
 {
 
-    EditText FullName, Email, Password;
+    EditText FullName, Email;
     ImageView imageView;
-    Button Save, Cancel, Remove, Logout, Updateimage;
+    Button Save, Cancel, Remove, Logout, Updateimage, Update;
     StorageReference storageReference;
     FirebaseAuth fAuth;
 
@@ -60,13 +60,13 @@ public class Settings extends AppCompatActivity
 
         FullName = findViewById(R.id.fullname_id);
         Email = findViewById(R.id.email_id);
-        Password = findViewById(R.id.password_id);
         imageView = findViewById(R.id.image_id);
         Save = findViewById(R.id.save_id);
         Cancel = findViewById(R.id.cancel_id);
         Remove = findViewById(R.id.remove_id);
         Logout = findViewById(R.id.logout_id);
         Updateimage = findViewById(R.id.imageb_id);
+        Update = findViewById(R.id.up_id);
 
 
 
@@ -85,6 +85,7 @@ public class Settings extends AppCompatActivity
         {}
 
 
+
         fAuth = FirebaseAuth.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
 
@@ -93,6 +94,19 @@ public class Settings extends AppCompatActivity
             @Override
             public void onSuccess(Uri uri) {
                 Picasso.get().load(uri).into(imageView);
+            }
+        });
+
+        Update.setOnClickListener(new View.OnClickListener() {
+
+            String FullNameVal = FullName.getEditableText().toString();
+            String EmailVal = Email.getEditableText().toString();
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(), Update_C.class);
+                i.putExtra("FullNameKey", FullNameVal);
+                i.putExtra("EmailKey", EmailVal);
+                startActivity(i);
             }
         });
 
@@ -108,8 +122,6 @@ public class Settings extends AppCompatActivity
 
             }
         });
-
-
 
         Cancel.setOnClickListener(new View.OnClickListener()
         {
@@ -163,10 +175,7 @@ public class Settings extends AppCompatActivity
             {
                 String FullNameVal = FullName.getEditableText().toString();
                 String EmailVal = Email.getEditableText().toString();
-                String PasswordVal = Password.getEditableText().toString();
 
-
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(FullNameVal).build();
                 FullName.setText(FullNameVal);
 
@@ -177,40 +186,6 @@ public class Settings extends AppCompatActivity
                                 if (task.isSuccessful()) {
                                     Log.d(TAG, "User name updated.");
                                 }
-                            }
-                        });
-
-
-
-                user.updateEmail(EmailVal)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    Log.d(TAG, "User email address updated.");
-                                }
-                            }
-                        });
-
-
-                user.updatePassword(PasswordVal)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    Log.d(TAG, "User password updated.");
-                                }
-                            }
-                        });
-
-                AuthCredential credential = EmailAuthProvider
-                        .getCredential(EmailVal, PasswordVal);
-
-                user.reauthenticate(credential)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                Log.d(TAG, "User re-authenticated.");
                             }
                         });
 

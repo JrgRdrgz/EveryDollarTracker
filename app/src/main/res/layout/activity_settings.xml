@@ -46,7 +46,7 @@
         app:layout_constraintHorizontal_bias="0.914"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageb_id"
-        app:layout_constraintVertical_bias="0.773" />
+        app:layout_constraintVertical_bias="0.776" />
 
     <Button
         android:id="@+id/save_id"
@@ -65,7 +65,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageb_id"
-        app:layout_constraintVertical_bias="0.771" />
+        app:layout_constraintVertical_bias="0.779" />
 
     <Button
         android:id="@+id/logout_id"
@@ -112,10 +112,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/save_id"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintHorizontal_bias="0.062"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.508" />
+        app:layout_constraintVertical_bias="0.623" />
 
     <TextView
         android:id="@+id/emailtext_id"
@@ -129,7 +129,7 @@
         app:layout_constraintHorizontal_bias="0.046"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nametext_id"
-        app:layout_constraintVertical_bias="0.292" />
+        app:layout_constraintVertical_bias="0.435" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -145,10 +145,10 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/save_id"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.319"
+        app:layout_constraintHorizontal_bias="0.297"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageb_id"
-        app:layout_constraintVertical_bias="0.138"
+        app:layout_constraintVertical_bias="0.398"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
@@ -163,36 +163,21 @@
         app:layout_constraintHorizontal_bias="0.312"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fullname_id"
-        app:layout_constraintVertical_bias="0.284"
+        app:layout_constraintVertical_bias="0.54"
         tools:ignore="SpeakableTextPresentCheck" />
 
-    <EditText
-        android:id="@+id/password_id"
-        android:layout_width="347dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:hint="Enter Your Password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/remove_id"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.304"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_id"
-        app:layout_constraintVertical_bias="0.253" />
-
-    <TextView
-        android:id="@+id/password_text"
+    <Button
+        android:id="@+id/up_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Password"
-        android:textColor="@color/purple_700"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/save_id"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.047"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailtext_id"
-        app:layout_constraintVertical_bias="0.493" />
+        android:layout_marginBottom="32dp"
+        android:text="Update"
+        app:layout_constraintBottom_toTopOf="@+id/remove_id"
+        app:layout_constraintEnd_toStartOf="@+id/cancel_id"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toEndOf="@+id/save_id"
+        app:layout_constraintTop_toBottomOf="@+id/email_id"
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
