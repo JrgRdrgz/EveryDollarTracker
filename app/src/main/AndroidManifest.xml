@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EveryDollarTracker">
         <activity
-            android:name=".Update_C"
+            android:name=".note_detail"
             android:exported="true" />
         <activity
             android:name=".Settings"
