@@ -126,10 +126,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/save_id"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintHorizontal_bias="0.046"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nametext_id"
-        app:layout_constraintVertical_bias="0.418" />
+        app:layout_constraintVertical_bias="0.439" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -151,29 +151,29 @@
 
     <TextView
         android:id="@+id/fullname_id"
-        android:layout_width="220dp"
-        android:layout_height="50dp"
+        android:layout_width="360dp"
+        android:layout_height="60dp"
         android:textColor="#B62C2C"
         android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@+id/up_id"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.135"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageb_id"
-        app:layout_constraintVertical_bias="0.374" />
+        app:layout_constraintVertical_bias="0.36" />
 
     <TextView
         android:id="@+id/email_id"
-        android:layout_width="220dp"
-        android:layout_height="50dp"
+        android:layout_width="360dp"
+        android:layout_height="60dp"
         android:textColor="#CA1E1E"
         android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@+id/up_id"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.132"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fullname_id"
-        app:layout_constraintVertical_bias="0.532" />
+        app:layout_constraintVertical_bias="0.582" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -33,7 +34,40 @@ public class edit_profile extends AppCompatActivity {
         updateemail.setText(email);
 
 
+        UpdateB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String FullNameVal = updatefullname.getEditableText().toString();
+                String EmailVal = updateemail.getEditableText().toString();
+
+                if (FullNameVal.isEmpty())
+                {
+                    updatefullname.setError("Enter Your Name");
+                    updatefullname.requestFocus();
+                    return;
+                }
+
+                if (EmailVal.isEmpty())
+                {
+                    updateemail.setError("Enter Your Email");
+                    updateemail.requestFocus();
+                    return;
+                }
+
+            }
+        });
+
+        Cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Settings.class);
+                startActivity(intent);
+            }
+        });
+
 
 
     }
+
 }
