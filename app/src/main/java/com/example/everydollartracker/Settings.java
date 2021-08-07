@@ -51,8 +51,6 @@ public class Settings extends AppCompatActivity
     Button Save, Cancel, Remove, Logout, Updateimage;
     StorageReference storageReference;
     FirebaseAuth fAuth;
-    private FirebaseDatabase db = FirebaseDatabase.getInstance();
-    private DatabaseReference root = db.getReference().child("Users");
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -177,7 +175,7 @@ public class Settings extends AppCompatActivity
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
-                                    Log.d(TAG, "User profile updated.");
+                                    Log.d(TAG, "User name updated.");
                                 }
                             }
                         });
