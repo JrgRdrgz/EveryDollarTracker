@@ -1,6 +1,5 @@
 package com.example.everydollartracker;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,12 +32,6 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class Dashboard extends Fragment{
-    public static User thisUser;
-    /*TextView recyclerView;
-    ArrayList<InExStore> userlist;
-    adapter myadapter;
-    FirebaseFirestore db;
-    ProgressDialog progressDialog;*/
     TextView incomeremaining;
     Calendar cal = Calendar.getInstance();
 
@@ -57,14 +50,6 @@ public class Dashboard extends Fragment{
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Dashboard.
-     */
     // TODO: Rename and change types and number of parameters
     public static Dashboard newInstance(String param1, String param2) {
         Dashboard fragment = new Dashboard();
@@ -88,12 +73,6 @@ public class Dashboard extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-        /*progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setCancelable(false);
-        progressDialog.setMessage("Loading Budget Items..");
-        progressDialog.show();*/
-
 
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
         incomeremaining= (TextView) view.findViewById(R.id.remainingincomeamount2);
@@ -123,20 +102,6 @@ public class Dashboard extends Fragment{
                 startActivity(intent);
             }
         });
-
-
-
-
-        /*recyclerView =(RecyclerView) view.findViewById(R.id.incomelist);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setHasFixedSize(true);
-
-        db = FirebaseFirestore.getInstance();
-        userlist= new ArrayList<InExStore>();
-        myadapter = new adapter(getActivity(), userlist);
-        recyclerView.setAdapter(myadapter);
-        EventChange();*/
-
         return view;
 
     }
