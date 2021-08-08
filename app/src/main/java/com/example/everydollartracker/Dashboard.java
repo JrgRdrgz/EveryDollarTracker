@@ -1,6 +1,5 @@
 package com.example.everydollartracker;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,12 +32,6 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class Dashboard extends Fragment{
-    public static User thisUser;
-    /*TextView recyclerView;
-    ArrayList<InExStore> userlist;
-    adapter myadapter;
-    FirebaseFirestore db;
-    ProgressDialog progressDialog;*/
     TextView incomeremaining;
     Calendar cal = Calendar.getInstance();
 
@@ -57,14 +50,6 @@ public class Dashboard extends Fragment{
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Dashboard.
-     */
     // TODO: Rename and change types and number of parameters
     public static Dashboard newInstance(String param1, String param2) {
         Dashboard fragment = new Dashboard();
@@ -88,12 +73,6 @@ public class Dashboard extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-        /*progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setCancelable(false);
-        progressDialog.setMessage("Loading Budget Items..");
-        progressDialog.show();*/
-
 
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
         incomeremaining= (TextView) view.findViewById(R.id.remainingincomeamount2);
@@ -123,33 +102,70 @@ public class Dashboard extends Fragment{
                 startActivity(intent);
             }
         });
-
-
-
-
-        /*recyclerView =(RecyclerView) view.findViewById(R.id.incomelist);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setHasFixedSize(true);
-
-        db = FirebaseFirestore.getInstance();
-        userlist= new ArrayList<InExStore>();
-        myadapter = new adapter(getActivity(), userlist);
-        recyclerView.setAdapter(myadapter);
-        EventChange();*/
-
         return view;
 
     }
     String getRemaining() {
-        String textA="";
-        double xa=0.0;
+        double income = 0.0;
+        double expense = 0.0;
+        Calendar cal = Calendar.getInstance();
+        int thisMonth = cal.get(Calendar.MONTH)+1;
+        int numDays =0;
+        int thisDay = cal.get(Calendar.DAY_OF_MONTH);
+        String result = "";
+
+
+        if(thisMonth==1){
+            numDays=31;
+        }else if(thisMonth==2){
+            numDays=28;
+        }else if(thisMonth==3){
+            numDays=31;
+        }else if(thisMonth==4){
+            numDays=30;
+        }else if(thisMonth==5){
+            numDays=31;
+        }else if(thisMonth==6){
+            numDays=30;
+        }else if(thisMonth==7){
+            numDays=31;
+        }else if(thisMonth==8){
+            numDays=31;
+        }else if(thisMonth==9){
+            numDays=30;
+        }else if(thisMonth==10){
+            numDays=31;
+        }else if(thisMonth==11){
+            numDays=30;
+        }else if(thisMonth==12){
+            numDays=31;
+        }
+
         for (InExStore i : App_Page.inExArray){
             if(i.getType().equals("INCOME")){
-                xa=xa+ i.getAmount();
+                String dateString = i.getDate().substring(3,5); /*  08/07/2021 */
+                int dateInt = Integer.parseInt(dateString);
+
+                if(thisDay == dateInt){
+                    income=income+ i.getAmount();
+                }
             }
         }
-        textA=Double.toString(xa);
-        return textA;
+        for (InExStore i : App_Page.inExArray){
+            if(i.getType().equals("EXPENSES")){
+                String dateString = i.getDate().substring(3,5); /*  08/07/2021 */
+                int dateInt = Integer.parseInt(dateString);
+
+                if(thisDay == dateInt){
+                    expense=expense+ i.getAmount();
+                }
+            }
+        }
+
+        income=income/numDays;
+        income = income-expense;
+        result = String.format("%.2f",income);
+        return result;
     }
 
     private String getRemainings() {

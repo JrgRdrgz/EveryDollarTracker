@@ -8,6 +8,10 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.util.Calendar;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link Statistics#newInstance} factory method to
@@ -77,10 +81,158 @@ public class Statistics extends Fragment {
         textViewOS.setText(funOS());
         textViewOW.setText(funOW());
         textViewON.setText(funON());
-        textViewME.setText(App_Page.userID);
+        textViewDA.setText(funDA());
+        textViewMA.setText(funMA());
+        textViewDE.setText(funDE());
+        textViewME.setText(funME());
 
         return view;
     }
+
+    private String funME() {
+        double xa = 0.0;
+        Calendar cal = Calendar.getInstance();
+        int thisMonth = cal.get(Calendar.MONTH)+1;
+        String result = "";
+
+        for (InExStore i : App_Page.inExArray){
+            if(i.getType().equals("EXPENSES")){
+                String dateString = i.getDate().substring(0,2); /*  08/07/2021 */
+                int dateInt = Integer.parseInt(dateString);
+
+                if(thisMonth == dateInt){
+                    xa=xa+ i.getAmount();
+                }
+
+            }
+        }
+        result = String.format("%.2f",xa);
+        return result;
+    }
+
+    private String funDE() {
+        double xa = 0.0;
+        Calendar cal = Calendar.getInstance();
+        int thisMonth = cal.get(Calendar.MONTH)+1;
+        int numDays =0;
+        int thisDay = cal.get(Calendar.DAY_OF_MONTH);
+        String result = "";
+
+
+        if(thisMonth==1){
+            numDays=31;
+        }else if(thisMonth==2){
+            numDays=28;
+        }else if(thisMonth==3){
+            numDays=31;
+        }else if(thisMonth==4){
+            numDays=30;
+        }else if(thisMonth==5){
+            numDays=31;
+        }else if(thisMonth==6){
+            numDays=30;
+        }else if(thisMonth==7){
+            numDays=31;
+        }else if(thisMonth==8){
+            numDays=31;
+        }else if(thisMonth==9){
+            numDays=30;
+        }else if(thisMonth==10){
+            numDays=31;
+        }else if(thisMonth==11){
+            numDays=30;
+        }else if(thisMonth==12){
+            numDays=31;
+        }
+
+        for (InExStore i : App_Page.inExArray){
+            if(i.getType().equals("EXPENSES")){
+                String dateString = i.getDate().substring(3,5); /*  08/07/2021 */
+                int dateInt = Integer.parseInt(dateString);
+
+                if(thisDay == dateInt){
+                    xa=xa+ i.getAmount();
+                }
+
+            }
+        }
+        result = String.format("%.2f",xa);
+        return result;
+
+    }
+
+    private String funMA() {
+        double xa = 0.0;
+        Calendar cal = Calendar.getInstance();
+        int thisMonth = cal.get(Calendar.MONTH)+1;
+        String result = "";
+
+        for (InExStore i : App_Page.inExArray){
+            if(i.getType().equals("INCOME")){
+                String dateString = i.getDate().substring(0,2); /*  08/07/2021 */
+                int dateInt = Integer.parseInt(dateString);
+
+                if(thisMonth == dateInt){
+                    xa=xa+ i.getAmount();
+                }
+
+            }
+        }
+        result = String.format("%.2f",xa);
+        return result;
+    }
+
+    private String funDA() {
+        double xa = 0.0;
+        Calendar cal = Calendar.getInstance();
+        int thisMonth = cal.get(Calendar.MONTH)+1;
+        int numDays =0;
+        int thisDay = cal.get(Calendar.DAY_OF_MONTH);
+        String result = "";
+
+
+        if(thisMonth==1){
+            numDays=31;
+        }else if(thisMonth==2){
+            numDays=28;
+        }else if(thisMonth==3){
+            numDays=31;
+        }else if(thisMonth==4){
+            numDays=30;
+        }else if(thisMonth==5){
+            numDays=31;
+        }else if(thisMonth==6){
+            numDays=30;
+        }else if(thisMonth==7){
+            numDays=31;
+        }else if(thisMonth==8){
+            numDays=31;
+        }else if(thisMonth==9){
+            numDays=30;
+        }else if(thisMonth==10){
+            numDays=31;
+        }else if(thisMonth==11){
+            numDays=30;
+        }else if(thisMonth==12){
+            numDays=31;
+        }
+
+        for (InExStore i : App_Page.inExArray){
+            if(i.getType().equals("INCOME")){
+                String dateString = i.getDate().substring(3,5); /*  08/07/2021 */
+                int dateInt = Integer.parseInt(dateString);
+
+                if(thisDay == dateInt){
+                    xa=xa+ i.getAmount();
+                }
+
+            }
+        }
+        xa=xa/numDays;
+        result = String.format("%.2f",xa);
+        return result;
+    }
+
     String funOI(){
         String textA="";
         double xa=0.0;
