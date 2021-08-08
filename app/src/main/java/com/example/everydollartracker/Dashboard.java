@@ -106,15 +106,54 @@ public class Dashboard extends Fragment{
 
     }
     String getRemaining() {
-        String textA="";
-        double xa=0.0;
+        double xa = 0.0;
+        Calendar cal = Calendar.getInstance();
+        int thisMonth = cal.get(Calendar.MONTH)+1;
+        int numDays =0;
+        int thisDay = cal.get(Calendar.DAY_OF_MONTH);
+        String result = "";
+
+
+        if(thisMonth==1){
+            numDays=31;
+        }else if(thisMonth==2){
+            numDays=28;
+        }else if(thisMonth==3){
+            numDays=31;
+        }else if(thisMonth==4){
+            numDays=30;
+        }else if(thisMonth==5){
+            numDays=31;
+        }else if(thisMonth==6){
+            numDays=30;
+        }else if(thisMonth==7){
+            numDays=31;
+        }else if(thisMonth==8){
+            numDays=31;
+        }else if(thisMonth==9){
+            numDays=30;
+        }else if(thisMonth==10){
+            numDays=31;
+        }else if(thisMonth==11){
+            numDays=30;
+        }else if(thisMonth==12){
+            numDays=31;
+        }
+
         for (InExStore i : App_Page.inExArray){
             if(i.getType().equals("INCOME")){
-                xa=xa+ i.getAmount();
+                String dateString = i.getDate().substring(3,5); /*  08/07/2021 */
+                int dateInt = Integer.parseInt(dateString);
+
+                if(thisDay == dateInt){
+                    xa=xa+ i.getAmount();
+                }
+
             }
         }
-        textA=Double.toString(xa);
-        return textA;
+        xa=xa/numDays;
+        result = String.format("%.2f",xa);
+        return result;
     }
 
     private String getRemainings() {
