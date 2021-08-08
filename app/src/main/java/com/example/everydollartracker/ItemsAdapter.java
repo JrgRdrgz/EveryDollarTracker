@@ -35,7 +35,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //grab the item
-        String item = items.get(position).getType()+": $"+items.get(position).getAmount()+", Source: "+items.get(position).getSource()+", Date: "+items.get(position).getDate()+"; ";
+        String item =position+". "+ items.get(position).getType()+": $"+items.get(position).getAmount()+", Source: "+items.get(position).getSource()+"\n Date: "+items.get(position).getDate()+", Note: "+items.get(position).getNote()+";";
         holder.bind(item);
         //bind
 
