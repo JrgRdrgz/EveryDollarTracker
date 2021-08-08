@@ -106,7 +106,8 @@ public class Dashboard extends Fragment{
 
     }
     String getRemaining() {
-        double xa = 0.0;
+        double income = 0.0;
+        double expense = 0.0;
         Calendar cal = Calendar.getInstance();
         int thisMonth = cal.get(Calendar.MONTH)+1;
         int numDays =0;
@@ -146,13 +147,24 @@ public class Dashboard extends Fragment{
                 int dateInt = Integer.parseInt(dateString);
 
                 if(thisDay == dateInt){
-                    xa=xa+ i.getAmount();
+                    income=income+ i.getAmount();
                 }
-
             }
         }
-        xa=xa/numDays;
-        result = String.format("%.2f",xa);
+        for (InExStore i : App_Page.inExArray){
+            if(i.getType().equals("EXPENSES")){
+                String dateString = i.getDate().substring(3,5); /*  08/07/2021 */
+                int dateInt = Integer.parseInt(dateString);
+
+                if(thisDay == dateInt){
+                    expense=expense+ i.getAmount();
+                }
+            }
+        }
+
+        income=income/numDays;
+        income = income-expense;
+        result = String.format("%.2f",income);
         return result;
     }
 
