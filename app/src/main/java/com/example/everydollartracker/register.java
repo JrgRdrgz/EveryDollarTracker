@@ -126,5 +126,8 @@ public class register extends AppCompatActivity {
                     }
                 });
 
+        Intent intent = new Intent(getApplicationContext(), login.class);
+        startActivity(intent);
+
     }
 }
