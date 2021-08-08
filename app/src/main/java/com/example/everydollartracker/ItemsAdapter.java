@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> {
 
-    List<InExStore> items= new ArrayList<>(App_Page.inExArray);
+    //List<InExStore> items= new ArrayList<>(App_Page.inExArray);
 
 
     public ItemsAdapter() {
@@ -35,7 +35,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //grab the item
-        String item =position+1+". "+ items.get(position).getType()+": $"+items.get(position).getAmount()+", Source: "+items.get(position).getSource()+"\n Date: "+items.get(position).getDate()+", Note: "+items.get(position).getNote()+";";
+        String item =position+1+". "+ App_Page.inExArray.get(position).getType()+": $"+App_Page.inExArray.get(position).getAmount()+", Source: "+App_Page.inExArray.get(position).getSource()+"\n Date: "+App_Page.inExArray.get(position).getDate()+", Note: "+App_Page.inExArray.get(position).getNote()+";";
         holder.bind(item);
         //bind
 
@@ -43,7 +43,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
 //tell how many items
     @Override
     public int getItemCount() {
-        return items.size();
+        return App_Page.inExArray.size();
     }
 
     // container to provide ez access to views that represent each row of list
