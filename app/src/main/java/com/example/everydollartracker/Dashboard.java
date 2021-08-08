@@ -34,6 +34,9 @@ import java.util.List;
 public class Dashboard extends Fragment{
     TextView incomeremaining;
     Calendar cal = Calendar.getInstance();
+    RecyclerView rvItems;
+    ItemsAdapter itemsAdapter;
+
 
 
 
@@ -74,9 +77,18 @@ public class Dashboard extends Fragment{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
+
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        rvItems=(RecyclerView) view.findViewById(R.id.incomelist);
         incomeremaining= (TextView) view.findViewById(R.id.remainingincomeamount2);
         incomeremaining.setText(getRemaining());
+        ////////////
+
+        /////////////
+        itemsAdapter = new ItemsAdapter();
+        rvItems.setAdapter(itemsAdapter);
+
+        rvItems.setLayoutManager(new LinearLayoutManager(view.getContext()));
 
         Button addexpense=(Button) view.findViewById(R.id.addexpense);
         addexpense.setOnClickListener(new View.OnClickListener() {
