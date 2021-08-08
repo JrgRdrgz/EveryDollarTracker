@@ -48,6 +48,7 @@ public class edit_profile extends AppCompatActivity {
 
                 String FullNameVal = updatefullname.getEditableText().toString();
                 String EmailVal = updateemail.getEditableText().toString();
+                String PasswordVal = updatepass.getEditableText().toString();
 
                 if (FullNameVal.isEmpty())
                 {
@@ -79,7 +80,27 @@ public class edit_profile extends AppCompatActivity {
                             }
                         });
 
-                Intent intent = new Intent(getApplicationContext(), Settings.class);
+                user.updateEmail(EmailVal)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Log.d(TAG, "User email address updated.");
+                                }
+                            }
+                        });
+
+                user.updatePassword(PasswordVal)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Log.d(TAG, "User password updated.");
+                                }
+                            }
+                        });
+
+                Intent intent = new Intent(getApplicationContext(), App_Page.class);
                 startActivity(intent);
 
 

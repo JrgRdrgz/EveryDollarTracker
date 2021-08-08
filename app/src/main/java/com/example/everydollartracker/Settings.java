@@ -97,8 +97,6 @@ public class Settings extends AppCompatActivity
 
         Update.setOnClickListener(new View.OnClickListener() {
 
-             //String FullNameVal = FullName.getText().toString();
-             //String EmailVal = Email.getText().toString();
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), edit_profile.class);
