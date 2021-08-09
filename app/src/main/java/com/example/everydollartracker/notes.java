@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,7 +18,6 @@ import android.widget.Button;
  */
 public class notes extends Fragment {
     private Button add_mew;
-    private Button view_notes;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -65,11 +65,11 @@ public class notes extends Fragment {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_notes, container, false);
-        view_notes = (Button) view.findViewById(R.id.view_NOTE);
-        view_notes.setOnClickListener(new View.OnClickListener() {
+        add_mew = (Button) view.findViewById(R.id.newNote);
+        add_mew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),note_view.class);
+                Intent intent = new Intent(getActivity(),note_detail.class);
                 startActivity(intent);
             }
         });
