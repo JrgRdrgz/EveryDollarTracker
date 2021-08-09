@@ -3,12 +3,12 @@
 
 Every Dollar Tracker Team would like to present to you a safe and simple Personal Manager Expenses App. Which serves as a money management app for the android operating system. It is well equipped with features such as login for security of the customer data. The customers can add their income and expenses through a very simple and smart user interface. also manage the customer’s expenses through the 50/30/20 budgeting rule. It will help them reach their financial life goals.
 Submitted by: 
-**
-Mhdragheed Aldarkazanly; 
-Milad Noori; 
-David Khoa Nguyen; 
-Jorge Rodriugez; 
-**
+
+**Mhdragheed Aldarkazanly; **
+**Milad Noori; **
+**David Khoa Nguyen; **
+**Jorge Rodriugez; **
+
 
 Time spent: **200** hours spent in total
 
