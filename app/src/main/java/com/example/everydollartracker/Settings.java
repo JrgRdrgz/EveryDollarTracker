@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -46,7 +47,7 @@ import java.net.URI;
 public class Settings extends AppCompatActivity
 {
 
-    EditText FullName, Email;
+    TextView FullName, Email;
     ImageView imageView;
     Button Save, Cancel, Remove, Logout, Updateimage, Update;
     StorageReference storageReference;
@@ -58,8 +59,8 @@ public class Settings extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        //FullName = findViewById(R.id.fullname_id);
-       // Email = findViewById(R.id.email_id);
+        FullName = findViewById(R.id.fullname_id);
+        Email = findViewById(R.id.email_id);
         imageView = findViewById(R.id.image_id);
         Save = findViewById(R.id.save_id);
         Cancel = findViewById(R.id.cancel_id);
@@ -73,13 +74,10 @@ public class Settings extends AppCompatActivity
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null)
         {
-
-                String name = user.getDisplayName();
-                String email = user.getEmail();
-                FullName.setText(name);
-                Email.setText(email);
-
-
+            String name = user.getDisplayName();
+            String email = user.getEmail();
+            FullName.setText(name);
+            Email.setText(email);
         }
         else
         {}
@@ -99,14 +97,12 @@ public class Settings extends AppCompatActivity
 
         Update.setOnClickListener(new View.OnClickListener() {
 
-            String FullNameVal = FullName.getEditableText().toString();
-            String EmailVal = Email.getEditableText().toString();
             @Override
             public void onClick(View v) {
-        //        Intent i = new Intent(v.getContext(), Update_C.class);
-        //        i.putExtra("FullNameKey", FullNameVal);
-        //        i.putExtra("EmailKey", EmailVal);
-        //        startActivity(i);
+                Intent i = new Intent(v.getContext(), edit_profile.class);
+                i.putExtra("FullNameKey", FullName.getText().toString());
+                i.putExtra("EmailKey", Email.getText().toString());
+                startActivity(i);
             }
         });
 
@@ -173,36 +169,6 @@ public class Settings extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                String FullNameVal = FullName.getEditableText().toString();
-                String EmailVal = Email.getEditableText().toString();
-
-                UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(FullNameVal).build();
-                FullName.setText(FullNameVal);
-
-                user.updateProfile(profileUpdates)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    Log.d(TAG, "User name updated.");
-                                }
-                            }
-                        });
-
-
-                if (FullNameVal.isEmpty())
-                {
-                    FullName.setError("Enter Your Name");
-                    FullName.requestFocus();
-                    return;
-                }
-
-                if (EmailVal.isEmpty())
-                {
-                    Email.setError("Enter Your Email");
-                    Email.requestFocus();
-                    return;
-                }
 
                 Intent intent = new Intent(getApplicationContext(), App_Page.class);
                 startActivity(intent);
