@@ -31,7 +31,7 @@ public class Income extends AppCompatActivity {
         editTextAmountIn=findViewById(R.id.editTextAmountIn);
         editTextDateIn=findViewById(R.id.editTextDateIn);
         editTextNoteIn=findViewById(R.id.editTextNoteIn);
-        DateFormat df = new SimpleDateFormat("dd/MM/yy");
+        DateFormat df = new SimpleDateFormat("mm/dd/yy");
         Date dateobj = new Date();
         String date=df.format(dateobj);
         editTextDateIn.setText(date);
@@ -60,12 +60,7 @@ public class Income extends AppCompatActivity {
     }
 
     public void addNewIncome (View view) {
-        //get date
-        /*DateFormat df = new SimpleDateFormat("dd/MM/yy");
-        Date dateobj = new Date();
-        String date=df.format(dateobj);
-        editTextDateIn.setText(date);*/
-        //
+
         EditText editTextAmountIn, editTextDateIn, editTextNoteIn;
         editTextAmountIn = findViewById(R.id.editTextAmountIn);
         editTextDateIn = findViewById(R.id.editTextDateIn);

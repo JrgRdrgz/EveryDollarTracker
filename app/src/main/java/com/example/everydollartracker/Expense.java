@@ -25,7 +25,7 @@ public class Expense extends AppCompatActivity {
         editTextAmountEx=findViewById(R.id.editTextAmountEx);
         editTextDateEx=findViewById(R.id.editTextDateEx);
         editTextNoteEx=findViewById(R.id.editTextNoteEx);
-        DateFormat df = new SimpleDateFormat("dd/MM/yy");
+        DateFormat df = new SimpleDateFormat("mm/dd/yy");
         Date dateobj = new Date();
         String date=df.format(dateobj);
         editTextDateEx.setText(date);
