@@ -222,7 +222,7 @@ public class Statistics extends Fragment {
                 String dateString = i.getDate().substring(0,2); /*  08/07/2021 */
                 int dateInt = Integer.parseInt(dateString);
 
-                if(thisDay == dateInt){
+                if(thisMonth == dateInt){
                     xa=xa+ i.getAmount();
                 }
 

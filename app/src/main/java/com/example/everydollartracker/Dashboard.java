@@ -157,8 +157,7 @@ public class Dashboard extends Fragment{
             if(i.getType().equals("INCOME")){
                 String dateString = i.getDate().substring(0,2); /*  08/07/2021 */
                 int dateInt = Integer.parseInt(dateString);
-
-                if(thisDay == dateInt){
+                if(thisMonth == dateInt){
                     income=income+ i.getAmount();
                 }
             }
