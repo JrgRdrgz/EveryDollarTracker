@@ -3,22 +3,38 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/barak/StudioProjects/EveryDollarTracker/app/src/main/res/layout/activity_expense.xml" value="0.2151268115942029" />
+        <entry key="..\:/Users/barak/StudioProjects/EveryDollarTracker/app/src/main/res/layout/activity_homepage.xml" value="0.25" />
+        <entry key="..\:/Users/barak/StudioProjects/EveryDollarTracker/app/src/main/res/layout/activity_main.xml" value="0.23822463768115942" />
+        <entry key="..\:/Users/barak/StudioProjects/EveryDollarTracker/app/src/main/res/layout/activity_note_detail.xml" value="0.2151268115942029" />
+        <entry key="..\:/Users/barak/StudioProjects/EveryDollarTracker/app/src/main/res/layout/activity_note_each.xml" value="0.34692028985507245" />
+        <entry key="..\:/Users/barak/StudioProjects/EveryDollarTracker/app/src/main/res/layout/activity_note_view.xml" value="0.1933876811594203" />
+        <entry key="..\:/Users/barak/StudioProjects/EveryDollarTracker/app/src/main/res/layout/activity_notes.xml" value="0.22916666666666666" />
+        <entry key="..\:/Users/barak/StudioProjects/EveryDollarTracker/app/src/main/res/layout/activity_notes_detail.xml" value="0.33" />
+        <entry key="..\:/Users/barak/StudioProjects/EveryDollarTracker/app/src/main/res/layout/activity_register.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/barak/StudioProjects/EveryDollarTracker/app/src/main/res/layout/activity_settings.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/barak/StudioProjects/EveryDollarTracker/app/src/main/res/layout/activity_update_c.xml" value="0.25" />
+        <entry key="..\:/Users/barak/StudioProjects/EveryDollarTracker/app/src/main/res/layout/fragment_dashboard.xml" value="0.17527173913043478" />
+        <entry key="..\:/Users/barak/StudioProjects/EveryDollarTracker/app/src/main/res/layout/fragment_graphs.xml" value="0.15081521739130435" />
+        <entry key="..\:/Users/barak/StudioProjects/EveryDollarTracker/app/src/main/res/layout/fragment_item_list.xml" value="0.37273550724637683" />
+        <entry key="..\:/Users/barak/StudioProjects/EveryDollarTracker/app/src/main/res/layout/fragment_notes.xml" value="0.25" />
+        <entry key="..\:/Users/barak/StudioProjects/EveryDollarTracker/app/src/main/res/layout/fragment_testing.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/barak/StudioProjects/EveryDollarTracker/app/src/main/res/layout/fragment_tests.xml" value="0.2151268115942029" />
+        <entry key="..\:/Users/barak/StudioProjects/EveryDollarTracker/app/src/main/res/layout/note_home.xml" value="0.1265625" />
+        <entry key="..\:/Users/barak/StudioProjects/EveryDollarTracker/app/src/main/res/menu/dashboardmeny.xml" value="0.2703125" />
         <entry key="..\:/Users/jr5jo/AndroidStudioProjects/EveryDollarTracker/app/src/main/res/layout/activity_expense.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/jr5jo/AndroidStudioProjects/EveryDollarTracker/app/src/main/res/layout/activity_homepage.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/jr5jo/AndroidStudioProjects/EveryDollarTracker/app/src/main/res/layout/activity_income.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/jr5jo/AndroidStudioProjects/EveryDollarTracker/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/jr5jo/AndroidStudioProjects/EveryDollarTracker/app/src/main/res/layout/fragment_dashboard.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/jr5jo/AndroidStudioProjects/EveryDollarTracker/app/src/main/res/layout/fragment_statistics.xml" value="0.33796296296296297" />
         <entry key="..\:/Users/jr5jo/AndroidStudioProjects/EveryDollarTracker/app/src/main/res/layout/incomelist.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/jr5jo/AndroidStudioProjects/EveryDollarTracker/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3828125" />
-        <entry key="..\:/Users/jr5jo/AndroidStudioProjects/EveryDollarTracker/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3828125" />
         <entry key="..\:/Users/raghe/AndroidStudioProjects/EveryDollarTracker/app/src/main/res/layout/activity_edit_profile.xml" value="0.21388888888888888" />
         <entry key="..\:/Users/raghe/AndroidStudioProjects/EveryDollarTracker/app/src/main/res/layout/activity_homepage.xml" value="0.2546875" />
-        <entry key="..\:/Users/raghe/AndroidStudioProjects/EveryDollarTracker/app/src/main/res/layout/activity_login.xml" value="0.2263888888888889" />
+        <entry key="..\:/Users/raghe/AndroidStudioProjects/EveryDollarTracker/app/src/main/res/layout/activity_main.xml" value="0.2263888888888889" />
         <entry key="..\:/Users/raghe/AndroidStudioProjects/EveryDollarTracker/app/src/main/res/layout/activity_note_detail.xml" value="0.2263888888888889" />
         <entry key="..\:/Users/raghe/AndroidStudioProjects/EveryDollarTracker/app/src/main/res/layout/activity_profile_page.xml" value="0.2546875" />
+        <entry key="..\:/Users/raghe/AndroidStudioProjects/EveryDollarTracker/app/src/main/res/layout/activity_register.xml" value="0.2263888888888889" />
         <entry key="..\:/Users/raghe/AndroidStudioProjects/EveryDollarTracker/app/src/main/res/layout/activity_settings.xml" value="0.2263888888888889" />
-        <entry key="..\:/Users/raghe/AndroidStudioProjects/EveryDollarTracker/app/src/main/res/layout/activity_update_c.xml" value="0.2263888888888889" />
         <entry key="..\:/Users/raghe/AndroidStudioProjects/EveryDollarTracker/app/src/main/res/layout/content_everyyy.xml" value="0.2546875" />
         <entry key="..\:/Users/raghe/AndroidStudioProjects/EveryDollarTracker/app/src/main/res/layout/fragment_dashboard.xml" value="0.2546875" />
         <entry key="..\:/Users/raghe/AndroidStudioProjects/EveryDollarTracker/app/src/main/res/layout/fragment_first.xml" value="0.2546875" />

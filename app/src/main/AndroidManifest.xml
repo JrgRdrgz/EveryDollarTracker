@@ -14,7 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EveryDollarTracker">
         <activity
+            android:name=".note_each"
+            android:exported="true" />
+        <activity
             android:name=".edit_profile"
+            android:exported="true" />
+        <activity
+            android:name=".note_view"
             android:exported="true" />
         <activity
             android:name=".note_detail"
