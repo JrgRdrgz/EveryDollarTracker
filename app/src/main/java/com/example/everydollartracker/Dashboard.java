@@ -155,7 +155,7 @@ public class Dashboard extends Fragment{
 
         for (InExStore i : App_Page.inExArray){
             if(i.getType().equals("INCOME")){
-                String dateString = i.getDate().substring(3,5); /*  08/07/2021 */
+                String dateString = i.getDate().substring(0,2); /*  08/07/2021 */
                 int dateInt = Integer.parseInt(dateString);
 
                 if(thisDay == dateInt){
