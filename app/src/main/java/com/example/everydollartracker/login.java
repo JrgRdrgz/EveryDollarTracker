@@ -74,7 +74,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
                 passwordResetDialog.setMessage("Enter Your Email");
                 passwordResetDialog.setView(resetEmail);
 
-                passwordResetDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                passwordResetDialog.setPositiveButton("Reset Password", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String mail = resetEmail.getText().toString();
@@ -93,7 +93,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
 
                     }
                 });
-                passwordResetDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                passwordResetDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
