@@ -132,7 +132,7 @@ public class edit_profile extends AppCompatActivity {
 
 
 
-                Intent intent = new Intent(getApplicationContext(), App_Page.class);
+                Intent intent = new Intent(getApplicationContext(), login.class);
                 startActivity(intent);
 
 
